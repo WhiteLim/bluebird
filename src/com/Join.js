@@ -70,7 +70,7 @@ export default function Join() {
             } else {
                 fetchFn("join",formdata);
                 alert("등록 완료");
-                nav('/main',{state:{id:formdata.id}})
+                nav('/')
                 return false;
             }
         }
