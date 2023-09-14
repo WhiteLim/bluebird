@@ -60,20 +60,13 @@ export default function Join() {
     }
 
     async function userCheck(formdata) {
-        for(let i=0; i<data.length; i++){
-            if(data[i].id === formdata.id){
-                alert("중복 된 아이디가 있습니다.")
-                return false;
-            } else if (data[i].nick === formdata.nick){
-                alert("중복 된 닉네임이 있습니다.")
-                return false;
-            } else {
-                fetchFn("join",formdata);
-                alert("등록 완료");
-                nav('/')
-                return false;
-            }
-        }
+        let k = data.filter(n=> n.id === formdata.id);
+        let d = data.filter(n=> n.nick === formdata.nick);
+        k.length > 0 ? alert("중복 된 아이디가 있습니다.") : d.length > 0 ? alert("중복 된 닉네임이 있습니다.") : end();
+    }
+
+    function end(){
+        alert("등록완료"); nav('/');
     }
     
     if(!icon) return <></>;
