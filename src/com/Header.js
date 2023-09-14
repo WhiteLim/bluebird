@@ -16,6 +16,7 @@ export default function Header({id}) {
             <li><Link to="/main/map" state={{id:id}}>사냥터</Link></li>
             <li>마을</li>
             <li>실시간 채팅</li>
+            <li><Link to='/'>로그아웃</Link></li>
         </ul>
     </header>
   )
