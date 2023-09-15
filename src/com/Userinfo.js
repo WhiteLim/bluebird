@@ -1,6 +1,7 @@
-import React, { useContext, useEffect, useState } from 'react'
+import React, { useContext, useEffect } from 'react'
 import { MyContext } from "../Context"
-import Header from './Header';
+import Header from '../Header';
+import Footer from '../Footer';
 
 export default function Userinfo({id}) {
     const {data,fetchFn} = useContext(MyContext);
@@ -20,6 +21,7 @@ export default function Userinfo({id}) {
         return num <= '20' ? 'F' : num <= '50' ? 'E' : num <= '100' ? 'd' : num <= '150' ? 'B' : 'A';
     } 
 
+    if(!data || data.length <= 0) return <></>;
 
   return (
     <div className='ingame'>
@@ -80,15 +82,7 @@ export default function Userinfo({id}) {
             ))
         }
                 
-                <footer>
-                    <ul>
-                        <li>개인정보처리방침</li>
-                        <li>공지사항</li>
-                        <li>가이드</li>
-                        <li>스토리</li>
-                    </ul>
-                    <p>Copyright ⓒ Forestseason. 2023 / Make By WhiteLim</p>
-                </footer>
+                <Footer id={id} />
             </div>
   )
 }

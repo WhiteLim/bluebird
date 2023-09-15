@@ -1,10 +1,14 @@
-import {createContext, useEffect, useReducer} from 'react'
+import {createContext, useReducer} from 'react'
 import axios from 'axios';
 export const MyContext = createContext();
 
 const reducer = (state,action)=>{
     switch(action.type){
-        default : return action.d ;
+        case 'battle' : return state;
+        default :
+            if(action.subtype === 'invan'){ return [action.d,action.i];
+            }else{ return action.d  }
+        ;
     }
 }
 
@@ -15,8 +19,8 @@ export default function Context({children }) {
         baseURL:`${process.env.REACT_APP_SERVER}`
     })
 
-    const fetchFn = async(type,data)=> {
-        let res;
+    const fetchFn = async(type,data,subtype)=> {
+        let res,invan;
         switch(type){
             case 'login' : 
                 res = await instance.get(`/user/login/${data.id}/${data.pw}`); 
@@ -26,6 +30,7 @@ export default function Context({children }) {
             break;
             case 'userdata' : 
                 res = await instance.get(`/user/${data}`);
+                if(subtype === 'invan')  invan = await instance.get(`/invan/${data}`);
             break;
             case 'upstate' : 
             res = await instance.put(`/user/state/`,data);
@@ -33,10 +38,19 @@ export default function Context({children }) {
             case 'list' : 
             res = await instance.get(`/user`);
             break;
+            case 'notice' : 
+            res = await instance.get(`/notice`);
+            break;
+            case 'noticede' : 
+            res = await instance.get(`/noticede/${data}`);
+            break;
+            case 'battle' : 
+            res = await instance.post(`/battle`,data);
+            break;
             default : console.log('not'); ;
         }
+        subtype !== 'invan' ? dispatch({type, d:res.data}) : dispatch({type, d:res.data, i:invan.data, subtype});
         
-        dispatch({type, d:res.data})
     }
 
 

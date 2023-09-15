@@ -62,10 +62,11 @@ export default function Join() {
     async function userCheck(formdata) {
         let k = data.filter(n=> n.id === formdata.id);
         let d = data.filter(n=> n.nick === formdata.nick);
-        k.length > 0 ? alert("중복 된 아이디가 있습니다.") : d.length > 0 ? alert("중복 된 닉네임이 있습니다.") : end();
+        k.length > 0 ? alert("중복 된 아이디가 있습니다.") : d.length > 0 ? alert("중복 된 닉네임이 있습니다.") : end(formdata);
     }
 
-    function end(){
+    function end(e){
+        fetchFn('join',e)
         alert("등록완료"); nav('/');
     }
     

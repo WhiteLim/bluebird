@@ -6,6 +6,9 @@ import Main from './com/Main';
 import Ivan from './com/Ivan';
 import Map from './com/Map';
 import Context from './Context';
+import Notice from './com/Notice';
+import Noticedetail from './com/Noticedetail';
+import Battle from './com/Battle';
 
 
 function App() {
@@ -18,6 +21,9 @@ function App() {
           <Route path='/main' element={<Main />} />
           <Route path='/main/invan' element={<Ivan />} />
           <Route path='/main/map' element={<Map />} />
+          <Route path='/notice' element = { <Notice /> } />
+          <Route path='/notice/:id' element = { <Noticedetail /> } />
+          <Route path='/battle' element = { <Battle /> } />
         </Routes>
       </BrowserRouter>
     </Context>

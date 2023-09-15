@@ -17,7 +17,7 @@ export default function Home() {
           k.length > 0 ? nav('/main',{state:{id:e.target.id.value}}) : alert("아이디 & 비밀번호를 확인해주세요.");
         }
     }
-
+    /* if(!data || data.length <= 0) return <></>; */
     //useEffect(()=>{  if(data.length > 0){ nav('/main/',{state:{id:data[0].id}}); }  },[data])
   return (
     <div className='main'>
