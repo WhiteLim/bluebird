@@ -9,6 +9,9 @@ import Context from './Context';
 import Notice from './com/Notice';
 import Noticedetail from './com/Noticedetail';
 import Battle from './com/Battle';
+import Guide from './com/Guide';
+import Story from './com/Story';
+import Town from './com/Town';
 
 
 function App() {
@@ -24,6 +27,9 @@ function App() {
           <Route path='/notice' element = { <Notice /> } />
           <Route path='/notice/:id' element = { <Noticedetail /> } />
           <Route path='/battle' element = { <Battle /> } />
+          <Route path='/guide' element = { <Guide /> } />
+          <Route path='/story' element = { <Story /> } />
+          <Route path='/town' element = { <Town /> } />
         </Routes>
       </BrowserRouter>
     </Context>

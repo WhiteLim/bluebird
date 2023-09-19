@@ -80,6 +80,7 @@ input {font-family: 'Ramche';}
     display: flex;
     list-style: none;
     gap: 10px;
+    margin: 20px 0; padding: 0;
   }
   button{
     width: 100%;
@@ -110,6 +111,142 @@ input {font-family: 'Ramche';}
 .ingame{
   display: flex; flex-direction: column;
   width: 100%;
+
+  div.town {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    section {
+      display: flex;
+      flex-direction: column;
+      &.townmap {
+        position: relative;
+        > div {
+          position: absolute;
+          width: 100%;
+          height: 100%;
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          > div 
+          {
+            &:nth-of-type(2){
+              text-align: right;
+            }
+            p {
+              background: rgba(0,0,0,0.5);
+              margin:40px 0;
+              padding: 20px 10px;
+              font-size: 15px;
+            }
+          }
+        }
+      }
+      button {
+        font-family: 'Ramche';
+        font-size: 16px;
+        margin:20px 0;
+        padding:20px;
+        border: 1px solid #fff;
+        background: #000;
+        color:#fff;
+      }
+    }
+  }
+
+  div.townlog {
+    margin-top:40px;
+    > p {
+      font-size: 20px;
+    }
+      form{
+        display: flex;
+        input[type=text] {
+          width: calc(100% - 50px);
+          border-bottom:1px solid #fff;
+          background: #000;
+          color:#fff;
+        }
+        input[type=submit] {
+          font-size: 15px;
+          padding:10px 20px;
+          text-align: center;
+          border: 1px solid #fff;
+          background: #000;
+          color:#fff
+        }
+    }
+    section {
+      > p {
+        display: flex;
+        justify-content: space-between;
+        line-height: 2;
+      }
+    }
+  }
+
+  main.guide {
+    > p {
+      font-size: 18px;
+      line-height: 1.5;
+      margin-bottom:40px;
+    }
+  }
+
+  main.story {
+    > p {
+      font-size: 18px;
+      line-height: 1.8;
+    }
+  }
+
+  article.gu {
+    ul.info {
+      > li { 
+        margin:40px 0; 
+        &.active {
+          > p span {
+            transform: rotate(90deg);
+          }
+          > div {
+            display: block;
+          }
+        }
+        > p {
+          font-size: 22px;
+          display: flex;
+          justify-content: space-between;
+          cursor: pointer;
+          span {
+            transform: rotate(-90deg);
+            margin-right:20px;
+            transition:1s;
+          }
+        }
+        > div { 
+          display: none; padding-bottom:40px; border-bottom: 1px solid #fff; 
+          > p { font-size: 15px; } }
+      }
+    }
+    ul.god {
+      margin:0; padding:0;
+      display: flex;
+      justify-content: space-between;
+      list-style: none;
+      flex-wrap: wrap;
+      li {
+        width: 10%;
+        text-align: center;
+        img { width: 100%; object-fit: cover; margin:20px 0;}
+        display: flex;
+        flex-direction: column;
+        font-size: 14px;
+        line-height: 1.5;
+      }
+    }
+  }
+
+
   header {
     display: flex; justify-content: space-between; align-items: center;
     border-bottom: 1px solid #fff;
@@ -140,9 +277,9 @@ input {font-family: 'Ramche';}
     justify-content: space-between;
     flex-wrap: wrap;
     padding-bottom:40px;
-
+    gap: 10px;
     .usereq {
-      width: 30%;
+      width: 25%;
       display: flex; flex-direction: column;
     }
 
@@ -177,7 +314,7 @@ input {font-family: 'Ramche';}
     }
 
     .userinfo {
-      width: calc(100% - 50%);
+      width: 45%;
       display: flex;
         .usericon {
           width: 40%;
@@ -191,6 +328,14 @@ input {font-family: 'Ramche';}
           display: flex;
           flex-direction: column;
           justify-content: space-between;
+          > p:nth-of-type(7) {
+            line-height: 1.5;
+            display: flex;
+            flex-direction: column;
+            span {
+              display: block;
+            }
+          }
         }
     }
   }
@@ -253,6 +398,7 @@ input {font-family: 'Ramche';}
       text-align: center;
       list-style: none; margin:0; padding:0;
       li {
+        img {width: 50px;}
         button{
           background: #000;
           border: 1px solid #fff;
@@ -352,4 +498,60 @@ input {font-family: 'Ramche';}
       text-align: center;
     }
   }
+}
+
+
+
+@media (max-width:1023px){
+  body{width: 90%;}
+  #root .main{width: 70%;}
+  .ingame header{
+    flex-direction: column;
+    ul {
+      margin: 20px 0; padding:0;
+      gap:30px;
+      li{
+        font-size: 15px;
+      }
+    }
+  }
+  .ingame .userstaters .userinfo { 
+    width: 100%;
+    .userdata{
+      flex-wrap: wrap;
+      flex-direction: row;
+      > p { width: 50%; font-size: 15px; }
+    }
+    border-bottom: 1px solid #fff;
+    margin:20px 0;
+   }
+   .ingame .userstaters .userstate { width: 45%;  }
+   .ingame .userstaters .usereq { width: 45%;}
+   .ingame .map section.battle > div section {justify-content: space-around; }
+   .ingame .map section.battle > div section figure:nth-of-type(1), .ingame .map section.battle > div section figure:nth-of-type(2) { animation : none; }
+   .ingame .map section.battle a { width: 50%;}
+   .ingame div.town {background: url('./images/town.jpg') no-repeat 100% 100%; background-size: cover;}
+   .ingame div.town section.townmap {display: none;}
+}
+@media (max-width:640px){
+  body{width: 90%;}
+  #root .main{width: 100%;}
+  .ingame .userstaters .userinfo { 
+    flex-direction: column;
+    > .usericon, .userdata { width: 100%;}
+   }
+   .ingame .userstaters .userstate {width: 100%; border-bottom: 1px solid #fff; padding-bottom:30px;} 
+   .ingame .userstaters .usereq{width: 100%;}
+   .ingame .map ul { flex-wrap: wrap; justify-content: center; li{margin:20px 0;}}
+   .ingame .userstaters .userstate ul li {
+    align-items: center;
+    width: 100%;
+    display: flex;
+    margin: 10px 0;
+    justify-content: space-between;
+    border-bottom: 1px solid #fff;
+    padding-bottom: 20px;
+    &:last-child{border:0;}
+   }
+   .ingame .map section.battle > div section figure:nth-of-type(1), .ingame .map section.battle > div section figure:nth-of-type(2) { width: 80px; }
 }

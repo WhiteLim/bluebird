@@ -8,8 +8,7 @@ export default function Ivan() {
     const {state} = useLocation();
     const {data,fetchFn} = useContext(MyContext);
     useEffect(()=>{ fetchFn('userdata',state.id,'invan'); },[])
-
-    if(!data || data.length <= 1) return <></>;
+    if(!data || data.length <= 1 || data.length !== 2) return <></>;
   return (
     <div className='ingame'>
         <Header id={state.id} />
@@ -17,7 +16,7 @@ export default function Ivan() {
             <div className='inves'>{data[0].map(n=>(<p key={n.id}>{n.nick}</p>))}님의 인벤토리</div>
             <ul className='invan'>
               {
-                data[1][state.id].map(v=>(
+                !data[1][state.id].name ? <li><p>아이템이없습니다.</p></li> : data[1][state.id].map(v=>(
                   <li key={v.id}> 
                     [ <img src={ `/images/eq/${v.img}.png`} alt='' width='30px' /> ]
                      {v.name} / 
