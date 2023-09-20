@@ -16,14 +16,14 @@ export default function Ivan() {
             <div className='inves'>{data[0].map(n=>(<p key={n.id}>{n.nick}</p>))}님의 인벤토리</div>
             <ul className='invan'>
               {
-                !data[1][state.id].name ? <li><p>아이템이없습니다.</p></li> : data[1][state.id].map(v=>(
-                  <li key={v.id}> 
-                    [ <img src={ `/images/eq/${v.img}.png`} alt='' width='30px' /> ]
-                     {v.name} / 
-                     {v.cate === "w" ? "공격력":"방어력"} : {v.att} / 
-                     착용부위 : {v.set === "wapon1" ? "무기1" : "무기2"} / 
-                     타입 : {v.type} / 
-                     부가기능 : {v.magic === '' ? "부가기능없음" : v.magic}
+                data[1][state.id].length <= 0 ? <li><p>아이템이없습니다.</p></li> : data[1][state.id].map(v=>(
+                  <li key={v.name}> 
+                    <p>[ <img src={ `/images/eq/${v.icon}.png`} alt='' width='30px' /> ] </p>
+                    <p>{v.name}</p>
+                    <p>{v.type === "wa" ? "공격력":"방어력"} : {v.type === "wa" ? v.attr:v.dep}</p> 
+                    <p>공격속도 : {v.speed} </p>
+                    <p>착용부위 : {v.set}</p>
+                    <p>[ {v.st === true ? '장착중' : ''} ]</p>
                   </li>
                 ))
               }

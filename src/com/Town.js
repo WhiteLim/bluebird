@@ -1,11 +1,12 @@
 import React, { useContext, useEffect, useState } from 'react'
 import Header from '../Header'
 import Footer from '../Footer'
-import { Link, useLocation } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { MyContext } from '../Context';
 
 export default function Town() {
     const {state} = useLocation();
+    const move = useNavigate()
     const {data,fetchFn} = useContext(MyContext);
     useEffect(()=>{ fetchFn('town'); },[])
     const ready = ()=>{alert("아직 오픈전입니다.!!")}
@@ -21,6 +22,8 @@ export default function Town() {
         e.target.msg.value=''
     }
 
+    function gotown(link){  move(`/${link}`,{state:{id:state.id}}) }
+
     if(!data || data.length <= 0 ) return <></>;
   return (
     <div className='ingame'>
@@ -29,7 +32,7 @@ export default function Town() {
             <div className='town'>
                 <section>
                     <button onClick={ready}> 신전 </button>
-                    <button onClick={ready}> 상점 </button>
+                    <button onClick={()=>{ gotown('store') }}> 상점 </button>
                     <button onClick={ready}> 대장간 </button>
                 </section>
                 <section className='townmap'>
@@ -60,8 +63,8 @@ export default function Town() {
                 </form>
                 <section>
                     {
-                        data && data.slice(0, 5).map(v=>(
-                            <p key={v.no}><span>{v.nick} - {v.msg}</span> <code>{v.date}</code></p>
+                        data && data.slice(0, 10).map((v,k)=>(
+                            <p key={k}><span>{v.nick} - {v.msg}</span> <code>{v.date}</code></p>
                         ))
                     }
                 </section>

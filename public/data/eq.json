@@ -1,0 +1,12 @@
+{
+    "wa" : [
+        {"id":1,"icon":1,"name":"나무목검","attr":10,"speed":0,"gold":1,"set":"한손검"},
+        {"id":2,"icon":"club_new","name":"나무몽댕이","attr":10,"speed":0,"gold":1,"set":"한손몽둥이"}
+    ],
+    "hat" : [
+        {"id":1,"icon":3,"name":"천모자","dep":5,"speed":0,"gold":1,"set":"머리방어구"}
+    ],
+    "arm" : [
+        {"id":1,"icon":2,"name":"누더기 갑옷","dep":5,"speed":0,"gold":1,"set":"갑옷"}
+    ]
+}

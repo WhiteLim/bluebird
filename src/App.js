@@ -12,6 +12,7 @@ import Battle from './com/Battle';
 import Guide from './com/Guide';
 import Story from './com/Story';
 import Town from './com/Town';
+import Store from './com/Store';
 
 
 function App() {
@@ -30,6 +31,7 @@ function App() {
           <Route path='/guide' element = { <Guide /> } />
           <Route path='/story' element = { <Story /> } />
           <Route path='/town' element = { <Town /> } />
+          <Route path='/store' element = { <Store /> } />
         </Routes>
       </BrowserRouter>
     </Context>

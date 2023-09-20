@@ -54,6 +54,14 @@ export default function Join() {
         userdata.append('maxhp',100);
         userdata.append('mp',100);
         userdata.append('maxmp',100);
+        userdata.append('hat','');
+        userdata.append('amr','');
+        userdata.append('hand','');
+        userdata.append('boot','');
+        userdata.append('wa1','');
+        userdata.append('wa2','');
+        userdata.append('sub1','');
+        userdata.append('sub2','');
         userdata.append('inventory',inventory);
         let userForm =  Object.fromEntries( userdata )
         userCheck(userForm)

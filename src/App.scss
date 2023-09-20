@@ -112,6 +112,73 @@ input {font-family: 'Ramche';}
   display: flex; flex-direction: column;
   width: 100%;
 
+  main.store {
+    section.npc {
+      display: flex;
+      margin:0 0 30px;
+      padding-bottom: 40px;
+      align-items: center;
+      border-bottom: 1px solid #bbb;
+      p {
+        margin-left:20px;
+        line-height: 1.5;
+        font-size: 18px;
+      }
+    }
+    section.userdata {
+      padding-bottom:30px;
+      border-bottom: 1px solid #bbb;
+      text-align: right;
+    }
+    section.storelist {
+      width: 100%;
+      margin:20px 0;
+      nav{
+        display: flex;
+        justify-content: space-between;
+        border-bottom: 1px solid #bbb;
+        padding-bottom:20px; margin-bottom:10px;
+        span {
+          cursor: pointer;
+        }
+      }
+      ul{
+        margin: 30px 0 0; padding:0;
+        list-style: none;
+        li {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          border-bottom: 1px solid #3a3a3a;
+          padding-bottom:30px;
+          margin:30px 0;
+          &.remove {
+            display: none;
+          }
+          p {
+            width: 20%;
+            flex-shrink: 1;
+            text-align: center;
+            &:nth-of-type(1) {
+              width: 35px;
+              text-align: left;
+            }
+            &:nth-last-child(1){
+              width: 100px;
+              text-align: right;
+            }
+            button{
+              background: #000;
+              border: 1px solid #fff;
+              color: #fff;
+              padding:10px;
+            }
+          }
+        }
+      }
+    }
+  }
+
   div.town {
     display: flex;
     justify-content: space-around;
@@ -150,6 +217,7 @@ input {font-family: 'Ramche';}
         border: 1px solid #fff;
         background: #000;
         color:#fff;
+        cursor: pointer;
       }
     }
   }
@@ -281,6 +349,17 @@ input {font-family: 'Ramche';}
     .usereq {
       width: 25%;
       display: flex; flex-direction: column;
+      > div > p {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        button{
+          background: #000;
+          color:#fff;
+          border:1px solid #fff;
+          padding:5px 10px;
+        }
+      }
     }
 
 
@@ -333,7 +412,8 @@ input {font-family: 'Ramche';}
             display: flex;
             flex-direction: column;
             span {
-              display: block;
+              display: flex;
+              align-items: center;
             }
           }
         }
@@ -344,6 +424,10 @@ input {font-family: 'Ramche';}
     > .inves p { display: inline-block;}
     > .invan li {
       display: flex; align-items: center;
+      justify-content: space-between;
+      p {
+        display: flex; align-items: center;
+      }
     } 
 
     &.notice {

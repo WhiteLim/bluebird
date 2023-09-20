@@ -53,6 +53,9 @@ export default function Context({children }) {
             case 'townWr' : 
             res = await instance.post(`/townWr`,data);
             break;
+            case 'invanadd' : 
+            res = await instance.post(`/buy`,data);
+            break;
             default : console.log('not'); ;
         }
         subtype !== 'invan' ? dispatch({type, d:res.data}) : dispatch({type, d:res.data, i:invan.data, subtype});
