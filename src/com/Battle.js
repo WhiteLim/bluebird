@@ -165,8 +165,10 @@ export default function Battle() {
                     }
                 }
             }
-            let exp = Number(user.exp) + (!getexp ? 0 :  getexp);
+            let addexp = Math.floor( (!getexp ? 0 :  getexp) * (Number(user.wis) * 0.01) );
+            let exp = Number(user.exp) + (!getexp ? 0 :  getexp) + addexp ;
             let gold = Number(user.gold) + (!getGold ? 0 : getGold);
+            tag += `지혜스텟에 영향으로 ${addexp}경험치를 추가로 획득했습니다.`;
             if(exp >= user.nextexp) { 
                 tag += ` <h4> ${user.nick} Level Up!! ( ${user.lv} -> ${Number(user.lv) + 1} ) </h4>` 
                 let nextexps = Number(user.nextexp) + (Number(user.nextexp) * 0.15), point = Number(user.point) + 5;

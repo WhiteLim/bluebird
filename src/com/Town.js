@@ -46,14 +46,14 @@ export default function Town() {
                         <div>
                             <p>퀘스트를 수령하고 완료 할 수 있습니다. -</p>
                             <p>자신의 소속과 전체 랭킹을 확인 할 수 있습니다. -</p>
-                            <p>건물이 건설중 입니다.-</p>
+                            <p>유저간 골드 송금이 가능해집니다.-</p>
                         </div>
                     </div>
                 </section>
                 <section>
                     <button onClick={ready}> 모험가 길드 </button>
                     <button onClick={ready}> 명예의전당 </button>
-                    <button onClick={ready}> 개발중 </button>
+                    <button onClick={ready}> 은행 </button>
                 </section>
             </div>
             <div className="townlog">

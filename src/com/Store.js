@@ -18,11 +18,15 @@ export default function Store() {
     let user = data[0];
 
     if(!data || data.length <= 0 || data.length > 1 || !eq || eq.length <= 0) return <></>;
-    let eqList = ['wa','hat','arm','hand','boot'];
+    let eqList = ['wa','hat','arm','hand','boot','sub'];
 
     function buy(eqData){
-        fetchFn('invanadd',[state.id,eqData]);
-        alert(`${eqData.name} 구매 (${eqData.gold} Gold 소모) \n Notice. 이미 소지한 아이템은 구매가 이뤄지지 않습니다.`)
+        if(user.gold - eqData.gold <= 0){
+            alert('소지금이 적어 구매 할 수 없습니다.')
+        } else {
+            fetchFn('invanadd',[state.id,eqData]);
+            alert(`${eqData.name} 구매 (${eqData.gold} Gold 소모) \n Notice. 이미 소지한 아이템은 구매가 이뤄지지 않습니다.`)
+        }
     }
 
     function eqSet(cn) {
@@ -64,8 +68,8 @@ export default function Store() {
                             eq[eqList[k]].map(z=>(
                                 <li className={eqList[k]} key={z.id} >
                                     <p><img src={`./images/eq/${z.icon}.png`} alt='' /></p>
-                                    <p>아이템 명 : {z.name}</p>
-                                    <p>{!z.attr ? `방어력 : ${z.dep}` : `공격력 : ${z.attr}`}</p>
+                                    <p>{z.name}</p>
+                                    <p>{!z.attr ? !z.dep ? `` : `방어력 : ${z.dep}` : `공격력 : ${z.attr}`}</p>
                                     <p>추가 공격속도 : {z.speed}</p>
                                     <p>장착 부위 : {z.set}</p>
                                     <p>판매금액 : {z.gold.toLocaleString()} Gold</p>

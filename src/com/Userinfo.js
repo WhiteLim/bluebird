@@ -52,7 +52,7 @@ export default function Userinfo({id}) {
                             <p>소지금액 : { Number(v.gold).toLocaleString() }Gold</p>
                             <p>블루페이 : { Number(v.vippay) }Pay</p>
                             <p>소속진형 : { v.emp === 'devil' ? '환영사제단(그림 리퍼블릭)' : '신성제국(크로니우스)' }</p>
-                            <p>섬기는 신 : <span><img src={`/images/godicon/${v.god === '' ? 0 : v.god}.png`} alt={`${v.god === '' ? '무소속' : v.god}`} title={`${v.god === '' ? '무소속' : v.god}`}  width="40px"/>{ v.god === '' ? '아직 섬긴는 신이 없습니다.' : v.god }</span></p>
+                            <p>섬기는 신 : <span><img src={`/images/godicon/${v.god === '' ? 0 : v.god}.png`} alt={`${v.god === '' ? '무소속' : v.god}`} title={`${v.god === '' ? '무소속' : v.god}`}  width="40px"/>{ v.god === '' ? '아직 섬기는 신이 없습니다.' : v.god }</span></p>
                             <p>신앙심 : { Number(v.prea) }</p>
                         </div>
                     </div>
@@ -92,11 +92,11 @@ export default function Userinfo({id}) {
                             </p>
                         </div>
                         <div className='userconfig'>
-                            <p>총 공격력 : { Math.floor( 100 + (Number(v.str) + ( Number(v.str) * 0.5)) + Number(!v.wa?.magic ? 0 : v.wa.magic) ).toLocaleString() }</p>
-                            <p>총 방어력 : { Math.floor( 50 + (Number(v.hea) + ( Number(v.hea) * 0.5)) + Number(!v.hand?.magic ? 0 : v.hand.magic) + Number(!v.hat?.magic ? 0 : v.hat.magic) + Number(!v.arm?.magic ? 0 : v.arm.magic) + Number(!v.boot?.magic ? 0 : v.boot.magic) ).toLocaleString() }</p>
+                            <p>총 공격력 : { Math.floor( 100 + (Number(v.str) + ( Number(v.str) * 0.5)) + Number(!v.wa?.magic ? 0 : v.wa.magic) + Number(!v.sub?.magic ? 0 : v.sub.magic) ).toLocaleString() }</p>
+                            <p>총 방어력 : { Math.floor( 50 + (Number(v.hea) + ( Number(v.hea) * 0.5)) + Number(!v.hand?.magic ? 0 : v.hand.magic) + Number(!v.hat?.magic ? 0 : v.hat.magic) + Number(!v.arm?.magic ? 0 : v.arm.magic) + Number(!v.boot?.magic ? 0 : v.boot.magic) + Number(!v.sub?.magic ? 0 : v.sub.magic) ).toLocaleString() }</p>
                             <p>회피율 :  { Math.floor( 10 + ((Number(v.luk) + (Number(v.luk)*0.2) ) * 0.2) ).toLocaleString()}</p>
                             <p>명중률 : { Math.floor( 10 + ((Number(v.dex) + (Number(v.dex)*0.2) ) * 0.2) ).toLocaleString()}</p>
-                            <p>공격속도 : { Math.floor(Number(v.dex) + Number(!v.wa?.speed ? 0 : v.wa.speed) + Number(!v.hand?.speed ? 0 : v.hand.speed) + Number(!v.hat?.speed ? 0 : v.hat.speed) + Number(!v.arm?.speed ? 0 : v.arm.speed) + Number(!v.boot?.speed ? 0 : v.boot.speed) )}</p>
+                            <p>공격속도 : { Math.floor(Number(v.dex) + Number(!v.wa?.speed ? 0 : v.wa.speed) + Number(!v.hand?.speed ? 0 : v.hand.speed) + Number(!v.hat?.speed ? 0 : v.hat.speed) + Number(!v.arm?.speed ? 0 : v.arm.speed) + Number(!v.boot?.speed ? 0 : v.boot.speed) + Number(!v.sub?.speed ? 0 : v.sub.speed) )}</p>
                         </div>
                         <div className="eqpop">
                             <p>아이템 선택</p>

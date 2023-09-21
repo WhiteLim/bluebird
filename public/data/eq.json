@@ -2,19 +2,34 @@
     "wa" : [
         {"id":1,"icon":1,"name":"나무목검","attr":10,"speed":0,"gold":1000,"set":"한손검"},
         {"id":2,"icon":"club_new","name":"나무몽댕이","attr":15,"speed":-10,"gold":1000,"set":"한손몽둥이"},
-        {"id":3,"icon":"elven_short_sword","name":"숏소드","attr":20,"speed":10,"gold":10000,"set":"한손검"},
-        {"id":4,"icon":"elven_broadsword","name":"투핸드 소드","attr":50,"speed":-20,"gold":15000,"set":"양손검"}
+        {"id":3,"icon":"bow_01a","name":"나무활","attr":15,"speed":20,"gold":3500,"set":"활"},
+        {"id":4,"icon":"elven_short_sword","name":"숏소드","attr":20,"speed":10,"gold":10000,"set":"한손검"},
+        {"id":5,"icon":"elven_broadsword","name":"투핸드 소드","attr":50,"speed":-20,"gold":15000,"set":"양손검"},
+        {"id":6,"icon":"fish_01e","name":"참치 참치 냉동참치~","attr":0,"speed":0,"gold":10,"set":"이벤트 아이템"},
+        {"id":7,"icon":"I_Bone","name":"개뼈다구","attr":60,"speed":30,"gold":500000,"set":"이벤트 아이템"}
     ],
     "hat" : [
-        {"id":1,"icon":3,"name":"천모자","dep":5,"speed":0,"gold":1000,"set":"머리방어구"}
+        {"id":1,"icon":3,"name":"천모자","dep":5,"speed":0,"gold":1000,"set":"머리방어구"},
+        {"id":2,"icon":"C_Elm01","name":"훈련병 모자","dep":10,"speed":0,"gold":2000,"set":"머리방어구"},
+        {"id":3,"icon":"C_Elm03","name":"기사단 투구","dep":30,"speed":-5,"gold":15000,"set":"머리방어구"}
     ],
     "arm" : [
-        {"id":1,"icon":2,"name":"누더기 갑옷","dep":5,"speed":0,"gold":1000,"set":"갑옷"}
+        {"id":1,"icon":2,"name":"누더기 갑옷","dep":5,"speed":0,"gold":1000,"set":"갑옷"},
+        {"id":2,"icon":"A_Armour01","name":"나무 갑옷","dep":10,"speed":-5,"gold":1500,"set":"갑옷"},
+        {"id":3,"icon":"A_Armor04","name":"천 갑옷","dep":5,"speed":0,"gold":1500,"set":"갑옷"},
+        {"id":4,"icon":"A_Armour02","name":"철제 갑옷","dep":30,"speed":-20,"gold":10000,"set":"갑옷"}
     ],
     "hand" : [
         {"id":1,"icon":"glove_4_old","name":"가죽장갑","dep":5,"speed":1,"gold":2000,"set":"장갑"}
     ],
     "boot" : [
-        {"id":1,"icon":"boots_1_brown_old","name":"낡은 가죽 장화","dep":5,"speed":1,"gold":1000,"set":"신발"}
+        {"id":1,"icon":"boots_1_brown_old","name":"낡은 가죽 장화","dep":5,"speed":1,"gold":1000,"set":"신발"},
+        {"id":2,"icon":"A_Shoes01","name":"가죽 장화","dep":10,"speed":5,"gold":3000,"set":"신발"},
+        {"id":3,"icon":"A_Shoes02","name":"엘프의 장화","dep":15,"speed":20,"gold":9000,"set":"신발"}
+    ],
+    "sub" : [
+        {"id":1,"icon":"pearl_01c","name":"힘의 정기","attr":10,"speed":0,"gold":2000,"set":"보조아이템"},
+        {"id":2,"icon":"pearl_01e","name":"속도 정기","speed":10,"gold":5000,"set":"보조아이템"},
+        {"id":3,"icon":"S_Wind06","name":"천사의 날개","speed":600,"gold":1000000,"set":"보조아이템"}
     ]
 }
