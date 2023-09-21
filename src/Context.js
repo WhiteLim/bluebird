@@ -56,6 +56,9 @@ export default function Context({children }) {
             case 'invanadd' : 
             res = await instance.post(`/buy`,data);
             break;
+            case 'insertEq' :
+                res = await instance.post(`/userInsert`, data); 
+            break;
             default : console.log('not'); ;
         }
         subtype !== 'invan' ? dispatch({type, d:res.data}) : dispatch({type, d:res.data, i:invan.data, subtype});

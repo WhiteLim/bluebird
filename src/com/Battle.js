@@ -24,9 +24,8 @@ export default function Battle() {
         setTimeout(()=>{
             let user = data[0],tag='',getGold,getexp;
             const log = document.querySelector('.log')
-            
-            let userAtt =  Math.floor( 100 + (Number(user.str) + ( Number(user.str) * 0.5)) )
-            let userDep =  Math.floor( 100 + (Number(user.hea) + ( Number(user.hea) * 0.5)) )
+            let userAtt =  Math.floor( 100 + (Number(user.str) + ( Number(user.str) * 0.5)) + Number(!user.wa?.magic ? 0 : user.wa.magic) )
+            let userDep =  Math.floor( 100 + (Number(user.hea) + ( Number(user.hea) * 0.5)) + Number(!user.hand?.magic ? 0 : user.hand.magic) + Number(!user.hat?.magic ? 0 : user.hat.magic) + Number(!user.arm?.magic ? 0 : user.arm.magic) + Number(!user.boot?.magic ? 0 : user.boot.magic) )
             let anerDep =  moster_arr[state.monster][0].dep;
             let anerAtt =  moster_arr[state.monster][0].att;
             let damege = userAtt - anerDep;
@@ -197,9 +196,9 @@ export default function Battle() {
                     <div>
                         <p>{data[0].nick}</p>
                         <p>HP : { Math.floor(Number(data[0].maxhp) + ( Number(data[0].hea) + ( Number(data[0].hea) * Number(data[0].prea)))) }</p>
-                        <p>공격력 : { Math.floor( 100 + (Number(data[0].str) + ( Number(data[0].str) * 0.5)) ) }</p>
-                        <p>방어력 : { Math.floor( 50 + (Number(data[0].hea) + ( Number(data[0].hea) * 0.5)) ) }</p>
-                        <p>공격속도 : {data[0].dex} </p>
+                        <p>공격력 : { Math.floor( 100 + (Number(data[0].str) + ( Number(data[0].str) * 0.5)) + Number(!data[0].wa?.magic ? 0 : data[0].wa.magic) ) }</p>
+                        <p>방어력 : { Math.floor( 50 + (Number(data[0].hea) + ( Number(data[0].hea) * 0.5)) + Number(!data[0].hand?.magic ? 0 : data[0].hand.magic) + Number(!data[0].hat?.magic ? 0 : data[0].hat.magic) + Number(!data[0].arm?.magic ? 0 : data[0].arm.magic) + Number(!data[0].boot?.magic ? 0 : data[0].boot.magic) ) }</p>
+                        <p>공격속도 : {Math.floor( Number(data[0].dex) + Number(!data[0].wa?.speed ? 0 : data[0].wa.speed) + Number(!data[0].hand?.speed ? 0 : data[0].hand.speed) + Number(!data[0].hat?.speed ? 0 : data[0].hat.speed) + Number(!data[0].arm?.speed ? 0 : data[0].arm.speed) + Number(!data[0].boot?.speed ? 0 : data[0].boot.speed) )} </p>
                         <p>회피율 : { Math.floor( 10 + ((Number(data[0].luk) + (Number(data[0].luk)*0.2) ) * 0.2) )}</p>
                         <p>명중률 : { Math.floor( 10 + ((Number(data[0].dex) + (Number(data[0].dex)*0.2) ) * 0.2) )}</p>
                     </div>

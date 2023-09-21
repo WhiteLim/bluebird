@@ -13,27 +13,30 @@ import Guide from './com/Guide';
 import Story from './com/Story';
 import Town from './com/Town';
 import Store from './com/Store';
+import Eqco from './Eqco';
 
 
 function App() {
   return (
     <Context>
-      <BrowserRouter basename=''>
-        <Routes>
-          <Route path='/' element={<Home />} />
-          <Route path='/join' element={<Join />} />
-          <Route path='/main' element={<Main />} />
-          <Route path='/main/invan' element={<Ivan />} />
-          <Route path='/main/map' element={<Map />} />
-          <Route path='/notice' element = { <Notice /> } />
-          <Route path='/notice/:id' element = { <Noticedetail /> } />
-          <Route path='/battle' element = { <Battle /> } />
-          <Route path='/guide' element = { <Guide /> } />
-          <Route path='/story' element = { <Story /> } />
-          <Route path='/town' element = { <Town /> } />
-          <Route path='/store' element = { <Store /> } />
-        </Routes>
-      </BrowserRouter>
+      <Eqco>
+        <BrowserRouter basename=''>
+          <Routes>
+            <Route path='/' element={<Home />} />
+            <Route path='/join' element={<Join />} />
+            <Route path='/main' element={<Main />} />
+            <Route path='/main/invan' element={<Ivan />} />
+            <Route path='/main/map' element={<Map />} />
+            <Route path='/notice' element = { <Notice /> } />
+            <Route path='/notice/:id' element = { <Noticedetail /> } />
+            <Route path='/battle' element = { <Battle /> } />
+            <Route path='/guide' element = { <Guide /> } />
+            <Route path='/story' element = { <Story /> } />
+            <Route path='/town' element = { <Town /> } />
+            <Route path='/store' element = { <Store /> } />
+          </Routes>
+        </BrowserRouter>
+      </Eqco>
     </Context>
   );
 }
