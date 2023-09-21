@@ -31,7 +31,7 @@ export default function Town() {
         <main >
             <div className='town'>
                 <section>
-                    <button onClick={ready}> 신전 </button>
+                    <button onClick={()=>{ gotown('temple') }}> 신전 </button>
                     <button onClick={()=>{ gotown('store') }}> 상점 </button>
                     <button onClick={ready}> 대장간 </button>
                 </section>

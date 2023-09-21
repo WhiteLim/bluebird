@@ -14,6 +14,7 @@ import Story from './com/Story';
 import Town from './com/Town';
 import Store from './com/Store';
 import Eqco from './Eqco';
+import Temple from './com/Temple';
 
 
 function App() {
@@ -34,6 +35,7 @@ function App() {
             <Route path='/story' element = { <Story /> } />
             <Route path='/town' element = { <Town /> } />
             <Route path='/store' element = { <Store /> } />
+            <Route path='/temple' element = { <Temple /> } />
           </Routes>
         </BrowserRouter>
       </Eqco>

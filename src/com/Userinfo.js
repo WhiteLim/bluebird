@@ -8,6 +8,7 @@ export default function Userinfo({id}) {
     const {data,fetchFn} = useContext(MyContext);
     let {eq,ft} = useContext(eqContext);
     useEffect(()=>{ fetchFn('userdata',id); ft('reset') },[])
+    let godList = ["아스트라이아","벨라도르","세레니스","제피루스","아우레오스","엘리오스","에델라인","이리디아","데모스카"]
     function upstate(value) { fetchFn('upstate',{id,state:value}); }
 
     function grade(num){ return num <= '20' ? 'F' : num <= '50' ? 'E' : num <= '100' ? 'd' : num <= '150' ? 'B' : 'A'; } 
@@ -42,8 +43,8 @@ export default function Userinfo({id}) {
                     <div className='userinfo'>
                         <div className='usericon'>
                             <img src={`/images/usericon/${v.usericon}.png`} alt='' />
-                            <p>체력 : { Math.floor(Number(v.maxhp) + ( Number(v.hea) + ( Number(v.hea) * Number(v.prea)) )) } </p>
-                            <p>마력 : { Math.floor(Number(v.maxmp) + ( Number(v.maind) + ( Number(v.maind) * Number(v.prea))) ) }</p>
+                            <p>체력 : { Math.floor(Number(v.maxhp) + ( Number(v.hea) + ( Number(v.hea) * 10.25) )) } </p>
+                            <p>마력 : { Math.floor(Number(v.maxmp) + ( Number(v.maind) + ( Number(v.maind) * 10.25)) ) }</p>
                         </div>
                         <div className='userdata'>
                             <p>닉네임 : {v.nick}</p>
@@ -52,7 +53,15 @@ export default function Userinfo({id}) {
                             <p>소지금액 : { Number(v.gold).toLocaleString() }Gold</p>
                             <p>블루페이 : { Number(v.vippay) }Pay</p>
                             <p>소속진형 : { v.emp === 'devil' ? '환영사제단(그림 리퍼블릭)' : '신성제국(크로니우스)' }</p>
-                            <p>섬기는 신 : <span><img src={`/images/godicon/${v.god === '' ? 0 : v.god}.png`} alt={`${v.god === '' ? '무소속' : v.god}`} title={`${v.god === '' ? '무소속' : v.god}`}  width="40px"/>{ v.god === '' ? '아직 섬기는 신이 없습니다.' : v.god }</span></p>
+                            <p>섬기는 신 : 
+                                <span>
+                                    <img src={`/images/godicon/${v.god === '' ? 0 : v.god}.png`} alt={`${v.god === '' ? '무소속' : v.god}`} title={`${v.god === '' ? '무소속' : v.god}`}  width="40px"/>
+                                    {
+                                     v.god === '' ? 
+                                     '아직 섬기는 신이 없습니다.' 
+                                     : 
+                                     godList[v.god-1]
+                                     }</span></p>
                             <p>신앙심 : { Number(v.prea) }</p>
                         </div>
                     </div>

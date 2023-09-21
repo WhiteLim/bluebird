@@ -112,6 +112,57 @@ input {font-family: 'Ramche';}
   display: flex; flex-direction: column;
   width: 100%;
 
+  main.temple {
+    div {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      &.yesgod {
+        ul {
+          list-style: none;
+          margin:0; padding:0;
+          display: flex;
+          justify-content: space-between;
+          flex-wrap: wrap;
+          li {
+            width: 100px;
+            flex-shrink: 1;
+            display: flex;
+            flex-wrap: wrap;
+            text-align: center;
+            justify-content: center;
+            flex-direction: column;
+            font-size: 15px;
+            margin:0 10px;
+            img {
+              width: 100%;
+              object-fit: cover;
+            }
+            button {
+              background: #000;
+              color:#fff;
+              border: 1px solid #fff;
+              margin:10px 0;
+              padding:10px 0;
+            }
+          }
+        }
+        > .pr label{
+          display: flex;
+          flex-direction: column;
+          button {
+            margin:20px 0;
+            background: #000;
+            color:#fff;
+            border: 1px solid #fff;
+            padding:20px 0;
+          }
+        }
+      }
+    }
+  }
+
   main.store {
     section.npc {
       display: flex;

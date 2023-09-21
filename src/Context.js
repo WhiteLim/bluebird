@@ -59,6 +59,12 @@ export default function Context({children }) {
             case 'insertEq' :
                 res = await instance.post(`/userInsert`, data); 
             break;
+            case 'godselect' :
+                res = await instance.post(`/god`, data); 
+            break;
+            case 'prea' :
+                res = await instance.post(`/prea`, data);
+            break;
             default : console.log('not'); ;
         }
         subtype !== 'invan' ? dispatch({type, d:res.data}) : dispatch({type, d:res.data, i:invan.data, subtype});
