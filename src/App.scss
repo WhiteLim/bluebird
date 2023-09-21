@@ -2,7 +2,7 @@
 
 body {font-family: 'Ramche'; background: #000; color:#fff; max-width: 1024px; margin: 0px auto;}
 input {font-family: 'Ramche';}
-*{box-sizing: border-box;}
+*{box-sizing: border-box; }
 /* 메인 셋팅 */
 #root {width:100%; display: flex; justify-content: center; align-items: flex-start; height: 100vh; ;}
 .main {
@@ -391,9 +391,6 @@ input {font-family: 'Ramche';}
         }
       }
       > div > p {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
         line-height: 1.5;
         button{
           background: #000;

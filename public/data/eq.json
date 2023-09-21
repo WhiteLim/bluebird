@@ -1,12 +1,20 @@
 {
     "wa" : [
-        {"id":1,"icon":1,"name":"나무목검","attr":10,"speed":0,"gold":1,"set":"한손검"},
-        {"id":2,"icon":"club_new","name":"나무몽댕이","attr":10,"speed":0,"gold":1,"set":"한손몽둥이"}
+        {"id":1,"icon":1,"name":"나무목검","attr":10,"speed":0,"gold":1000,"set":"한손검"},
+        {"id":2,"icon":"club_new","name":"나무몽댕이","attr":15,"speed":-10,"gold":1000,"set":"한손몽둥이"},
+        {"id":3,"icon":"elven_short_sword","name":"숏소드","attr":20,"speed":10,"gold":10000,"set":"한손검"},
+        {"id":4,"icon":"elven_broadsword","name":"투핸드 소드","attr":50,"speed":-20,"gold":15000,"set":"양손검"}
     ],
     "hat" : [
-        {"id":1,"icon":3,"name":"천모자","dep":5,"speed":0,"gold":1,"set":"머리방어구"}
+        {"id":1,"icon":3,"name":"천모자","dep":5,"speed":0,"gold":1000,"set":"머리방어구"}
     ],
     "arm" : [
-        {"id":1,"icon":2,"name":"누더기 갑옷","dep":5,"speed":0,"gold":1,"set":"갑옷"}
+        {"id":1,"icon":2,"name":"누더기 갑옷","dep":5,"speed":0,"gold":1000,"set":"갑옷"}
+    ],
+    "hand" : [
+        {"id":1,"icon":"glove_4_old","name":"가죽장갑","dep":5,"speed":1,"gold":2000,"set":"장갑"}
+    ],
+    "boot" : [
+        {"id":1,"icon":"boots_1_brown_old","name":"낡은 가죽 장화","dep":5,"speed":1,"gold":1000,"set":"신발"}
     ]
 }

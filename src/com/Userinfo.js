@@ -70,14 +70,26 @@ export default function Userinfo({id}) {
                     </div>
                     <div className='usereq'>
                         <div>
-                            <p>머리 : <img src={`./images/eq/${v.hat?.icon}.png`} alt='' /> {v.hat?.name}<br/>[방어력:{v.hat?.magic}|스피드:{v.hat?.speed}] <button onClick={()=> eqset('hat')}>장착</button></p>
-                            <p>갑옷 : <img src={`./images/eq/${v.arm?.icon}.png`} alt='' /> {v.amr?.name}<br/>[방어력:{v.arm?.magic}|스피드:{v.arm?.speed}] <button onClick={()=> eqset('arm')}>장착</button></p>
-                            <p>장갑 : <img src={`./images/eq/${v.hand?.icon}.png`} alt='' />{v.hand?.name}<br/>[방어력:{v.hand?.magic}|스피드:{v.hand?.speed}] <button onClick={()=> eqset('hand')}>장착</button></p>
-                            <p>신발 : <img src={`./images/eq/${v.boot?.icon}.png`} alt='' />{v.boot?.name}<br/>[방어력:{v.boot?.magic}|스피드:{v.boot?.speed}] <button onClick={()=> eqset('boot')}>장착</button></p>
+                            <p>머리 : 
+                                <span><img src={`./images/eq/${v.hat?.icon}.png`} alt='' /> {v.hat?.name}<br/>[방어력:{v.hat?.magic}|스피드:{v.hat?.speed}] <button onClick={()=> eqset('hat')}>장착</button></span>
+                            </p>
+                            <p>갑옷 : 
+                                <span><img src={`./images/eq/${v.arm?.icon}.png`} alt='' /> {v.amr?.name}<br/>[방어력:{v.arm?.magic}|스피드:{v.arm?.speed}] <button onClick={()=> eqset('arm')}>장착</button></span>
+                            </p>
+                            <p>장갑 : 
+                                <span><img src={`./images/eq/${v.hand?.icon}.png`} alt='' />{v.hand?.name}<br/>[방어력:{v.hand?.magic}|스피드:{v.hand?.speed}] <button onClick={()=> eqset('hand')}>장착</button></span>
+                            </p>
+                            <p>신발 : 
+                                <span><img src={`./images/eq/${v.boot?.icon}.png`} alt='' />{v.boot?.name}<br/>[방어력:{v.boot?.magic}|스피드:{v.boot?.speed}] <button onClick={()=> eqset('boot')}>장착</button></span>
+                            </p>
                         </div>
                         <div>
-                            <p>무기 : <img src={`./images/eq/${v.wa?.icon}.png`} alt='' />{v.wa?.name}<br/>[공격력:{v.wa?.magic}|스피드:{v.wa?.speed}] <button onClick={()=> eqset('wa')}>장착</button></p>
-                            <p>보조아이템 : <img src={`./images/eq/${v.sub?.icon}.png`} alt='' />{v.sub?.name}<br/>[공격력:{v.sub?.magic}|스피드:{v.sub?.speed}] <button onClick={()=> eqset('sub')}>장착</button></p>
+                            <p>무기 : 
+                                <span><img src={`./images/eq/${v.wa?.icon}.png`} alt='' />{v.wa?.name}<br/>[공격력:{v.wa?.magic}|스피드:{v.wa?.speed}] <button onClick={()=> eqset('wa')}>장착</button></span>
+                            </p>
+                            <p>보조아이템 : 
+                                <span><img src={`./images/eq/${v.sub?.icon}.png`} alt='' />{v.sub?.name}<br/>[공격력:{v.sub?.magic}|스피드:{v.sub?.speed}] <button onClick={()=> eqset('sub')}>장착</button></span>
+                            </p>
                         </div>
                         <div className='userconfig'>
                             <p>총 공격력 : { Math.floor( 100 + (Number(v.str) + ( Number(v.str) * 0.5)) + Number(!v.wa?.magic ? 0 : v.wa.magic) ).toLocaleString() }</p>

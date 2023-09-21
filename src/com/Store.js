@@ -18,7 +18,7 @@ export default function Store() {
     let user = data[0];
 
     if(!data || data.length <= 0 || data.length > 1 || !eq || eq.length <= 0) return <></>;
-    let eqList = ['wa','hat','arm'];
+    let eqList = ['wa','hat','arm','hand','boot'];
 
     function buy(eqData){
         fetchFn('invanadd',[state.id,eqData]);
@@ -68,7 +68,7 @@ export default function Store() {
                                     <p>{!z.attr ? `방어력 : ${z.dep}` : `공격력 : ${z.attr}`}</p>
                                     <p>추가 공격속도 : {z.speed}</p>
                                     <p>장착 부위 : {z.set}</p>
-                                    <p>판매금액 : {z.gold} Gold</p>
+                                    <p>판매금액 : {z.gold.toLocaleString()} Gold</p>
                                     <p><button onClick={()=>{ buy({type:eqList[k],icon:z.icon,id:z.id,name:z.name,attr:z.attr,dep:z.dep,speed:z.speed,set:z.set,gold:z.gold,st:false}) }}>구매하기</button></p>
                                 </li>
                             ))
