@@ -33,103 +33,182 @@ export default function Userinfo({id}) {
     
     if(!data || data.length <= 0 || data.length > 1) return <></>;
   
-    
+    let user = data[0];
   return (
     <div className='ingame'>
         <Header id={id} />
-        {
-            data.map((v)=>(
-                <main className='userstaters' key={v.id}>
-                    <div className='userinfo'>
-                        <div className='usericon'>
-                            <img src={`/images/usericon/${v.usericon}.png`} alt='' />
-                            <p>체력 : { Math.floor(Number(v.maxhp) + ( Number(v.hea) + ( Number(v.hea) * 10.25) )) } </p>
-                            <p>마력 : { Math.floor(Number(v.maxmp) + ( Number(v.maind) + ( Number(v.maind) * 10.25)) ) }</p>
-                        </div>
-                        <div className='userdata'>
-                            <p>닉네임 : {v.nick}</p>
-                            <p>레벨 : { Number(v.lv) } </p>
-                            <p>경험치 : { Number(v.exp).toLocaleString() }/{ Number(v.nextexp).toLocaleString() }</p>
-                            <p>소지금액 : { Number(v.gold).toLocaleString() }Gold</p>
-                            <p>블루페이 : { Number(v.vippay) }Pay</p>
-                            <p>소속진형 : { v.emp === 'devil' ? '환영사제단(그림 리퍼블릭)' : '신성제국(크로니우스)' }</p>
-                            <p>섬기는 신 : 
-                                <span>
-                                    <img src={`/images/godicon/${v.god === '' ? 0 : v.god}.png`} alt={`${v.god === '' ? '무소속' : v.god}`} title={`${v.god === '' ? '무소속' : v.god}`}  width="40px"/>
-                                    {
-                                     v.god === '' ? 
-                                     '아직 섬기는 신이 없습니다.' 
-                                     : 
-                                     godList[v.god-1]
-                                     }</span></p>
-                            <p>신앙심 : { Number(v.prea) }</p>
-                        </div>
-                    </div>
-                    <div className="userstate">
-                        <ul>
-                            <li> 레벨업 포인트 : { Number(v.point) } </li>
-                            <li> 근력 : { Number(v.str).toLocaleString() } ({grade(Number(v.str))}) { v.point > 0 ? <button onClick={()=>{ upstate('str') }}> 근력 Up! </button> : '' }</li>
-                            <li> 민첩 : { Number(v.dex).toLocaleString() } ({grade(Number(v.dex))}) { v.point > 0 ? <button onClick={()=>{ upstate('dex') }}> 민첩 Up! </button> : '' }</li>
-                            <li> 건강 : { Number(v.hea).toLocaleString() } ({grade(Number(v.hea))}) { v.point > 0 ? <button onClick={()=>{ upstate('hea') }}> 건강 Up! </button> : '' }</li>
-                            <li> 행운 : { Number(v.luk).toLocaleString() } ({grade(Number(v.luk))}) { v.point > 0 ? <button onClick={()=>{ upstate('luk') }}> 행운 Up! </button> : '' }</li>
-                            <li> 지능 : { Number(v.int).toLocaleString() } ({grade(Number(v.int))}) { v.point > 0 ? <button onClick={()=>{ upstate('int') }}> 지능 Up! </button> : '' }</li>
-                            <li> 지혜 : { Number(v.wis).toLocaleString() } ({grade(Number(v.wis))}) { v.point > 0 ? <button onClick={()=>{ upstate('wis') }}> 지혜 Up! </button> : '' }</li>
-                            <li> 정신 : { Number(v.maind).toLocaleString() } ({grade(Number(v.maind))}) { v.point > 0 ? <button onClick={()=>{ upstate('maind') }}> 정신 Up! </button> : '' }</li>                            
-                        </ul>
-                    </div>
-                    <div className='usereq'>
-                        <div>
-                            <p>머리 : 
-                                <span><img src={`./images/eq/${v.hat?.icon}.png`} alt='' /> {v.hat?.name}<br/>[방어력:{v.hat?.magic}|스피드:{v.hat?.speed}] <button onClick={()=> eqset('hat')}>장착</button></span>
-                            </p>
-                            <p>갑옷 : 
-                                <span><img src={`./images/eq/${v.arm?.icon}.png`} alt='' /> {v.amr?.name}<br/>[방어력:{v.arm?.magic}|스피드:{v.arm?.speed}] <button onClick={()=> eqset('arm')}>장착</button></span>
-                            </p>
-                            <p>장갑 : 
-                                <span><img src={`./images/eq/${v.hand?.icon}.png`} alt='' />{v.hand?.name}<br/>[방어력:{v.hand?.magic}|스피드:{v.hand?.speed}] <button onClick={()=> eqset('hand')}>장착</button></span>
-                            </p>
-                            <p>신발 : 
-                                <span><img src={`./images/eq/${v.boot?.icon}.png`} alt='' />{v.boot?.name}<br/>[방어력:{v.boot?.magic}|스피드:{v.boot?.speed}] <button onClick={()=> eqset('boot')}>장착</button></span>
-                            </p>
-                        </div>
-                        <div>
-                            <p>무기 : 
-                                <span><img src={`./images/eq/${v.wa?.icon}.png`} alt='' />{v.wa?.name}<br/>[공격력:{v.wa?.magic}|스피드:{v.wa?.speed}] <button onClick={()=> eqset('wa')}>장착</button></span>
-                            </p>
-                            <p>보조아이템 : 
-                                <span><img src={`./images/eq/${v.sub?.icon}.png`} alt='' />{v.sub?.name}<br/>[공격력:{v.sub?.magic}|스피드:{v.sub?.speed}] <button onClick={()=> eqset('sub')}>장착</button></span>
-                            </p>
-                        </div>
-                        <div className='userconfig'>
-                            <p>총 공격력 : { Math.floor( 100 + (Number(v.str) + ( Number(v.str) * 0.5)) + Number(!v.wa?.magic ? 0 : v.wa.magic) + Number(!v.sub?.magic ? 0 : v.sub.magic) ).toLocaleString() }</p>
-                            <p>총 방어력 : { Math.floor( 50 + (Number(v.hea) + ( Number(v.hea) * 0.5)) + Number(!v.hand?.magic ? 0 : v.hand.magic) + Number(!v.hat?.magic ? 0 : v.hat.magic) + Number(!v.arm?.magic ? 0 : v.arm.magic) + Number(!v.boot?.magic ? 0 : v.boot.magic) + Number(!v.sub?.magic ? 0 : v.sub.magic) ).toLocaleString() }</p>
-                            <p>회피율 :  { Math.floor( 10 + ((Number(v.luk) + (Number(v.luk)*0.2) ) * 0.2) ).toLocaleString()}</p>
-                            <p>명중률 : { Math.floor( 10 + ((Number(v.dex) + (Number(v.dex)*0.2) ) * 0.2) ).toLocaleString()}</p>
-                            <p>공격속도 : { Math.floor(Number(v.dex) + Number(!v.wa?.speed ? 0 : v.wa.speed) + Number(!v.hand?.speed ? 0 : v.hand.speed) + Number(!v.hat?.speed ? 0 : v.hat.speed) + Number(!v.arm?.speed ? 0 : v.arm.speed) + Number(!v.boot?.speed ? 0 : v.boot.speed) + Number(!v.sub?.speed ? 0 : v.sub.speed) )}</p>
-                        </div>
-                        <div className="eqpop">
-                            <p>아이템 선택</p>
-                            {
-                                eq && eq?.map((d,num)=>(
-                                    !eq[num].state ? 
-                                        eq[num].state === 'noItem' ? <p key={eq}>장착 가능한 아이템이 없습니다.</p> :
-                                        <div key={num}>
-                                            <p>{d.name}</p>
-                                            <p>{ d.type === "wa" ? `공격력:${d.attr}` : `방어력:${d.dep}` }</p>
-                                            <p>공격속도 : {d.speed}</p>
-                                            <button onClick={()=> { setItem({data:{userId:v.id,type:d.type,id:d.id,attr:d.attr,dep:d.dep,speed:d.speed,icon:d.icon}}) }}>장착</button>
-                                        </div>
-                                        
-                                    : <p>장착 가능한 아이템이 없습니다.</p>
-                                ))
-                            }
-                            <button onClick={eqclose}>닫기</button>
-                        </div>
-                    </div>
-                </main>
-            ))
-        }
-         <Footer id={id} />
+
+        <main className='character'>
+            <div className='ch-info'>
+                <figure>
+                    <p><img src={`/images/usericon/${user.usericon}.png`} alt='' title='' /></p>
+                    <figcaption>
+                        <p>
+                            <img src={`/images/godicon/${user.god === '' ? 0 : user.god}.png`} alt={`${user.god === '' ? '무소속' : user.god}`} title={`${user.god === '' ? '무소속' : user.god}`}  width="20px"/>
+                            {user.nick} <span> ({ user.emp === 'devil' ? '환영사제단(그림 리퍼블릭)' : '신성제국(크로니우스)' }) </span> 
+                        </p>
+                        <p> 
+                            Lv. {user.lv} <span> ( exp. {user.exp}/{user.nextexp} ) </span>
+                            <span>HP [ { Math.floor(Number(user.maxhp) + ( Number(user.hea) + ( Number(user.hea) * 10.25) )) } ] </span>
+                            <span>MP [ { Math.floor(Number(user.maxmp) + ( Number(user.maind) + ( Number(user.maind) * 10.25)) ) } ] </span>
+                        </p>
+                    </figcaption>
+                </figure>
+                <section className='ch-st'>
+                    <p>Point [ {user.point} ]</p>
+                    <ul>
+                        <li>힘 [ { Number(user.str).toLocaleString() } ({grade(Number(user.str))}) ] { user.point > 0 ? <button onClick={()=>{ upstate('str') }}> + </button> : '' }</li>
+                        <li>민첩 [ { Number(user.dex).toLocaleString() } ({grade(Number(user.dex))}) ] { user.point > 0 ? <button onClick={()=>{ upstate('dex') }}> + </button> : '' }</li>
+                        <li>건강 [ { Number(user.hea).toLocaleString() } ({grade(Number(user.hea))}) ] { user.point > 0 ? <button onClick={()=>{ upstate('hea') }}> + </button> : '' }</li>
+                        <li>운 [ { Number(user.luk).toLocaleString() } ({grade(Number(user.luk))}) ] { user.point > 0 ? <button onClick={()=>{ upstate('luk') }}> + </button> : '' }</li>
+                        <li>지혜 [ { Number(user.wis).toLocaleString() } ({grade(Number(user.wis))}) ] { user.point > 0 ? <button onClick={()=>{ upstate('wis') }}> + </button> : '' }</li>
+                        <li>지식 [ { Number(user.int).toLocaleString() } ({grade(Number(user.int))}) ] { user.point > 0 ? <button onClick={()=>{ upstate('int') }}> + </button> : '' }</li>
+                        <li>정신 [ { Number(user.maind).toLocaleString() } ({grade(Number(user.maind))}) ] { user.point > 0 ? <button onClick={()=>{ upstate('maind') }}> + </button> : '' }</li>
+                    </ul>
+                </section>
+                <section className='ch-data'>
+                    <p><span>신</span><span>{ user.god === '' ? '' : godList[user.god-1] }</span></p>
+                    <p><span>신앙심</span><span>{user.prea}</span></p>
+                    <p><span>공격력</span><span>{ Math.floor( 100 + (Number(user.str) + ( Number(user.str) * 0.5)) + Number(!user.wa?.magic ? 0 : user.wa.magic) + Number(!user.sub?.magic ? 0 : user.sub.magic) ).toLocaleString() }</span></p>
+                    <p><span>방어력</span><span>{ Math.floor( 50 + (Number(user.hea) + ( Number(user.hea) * 0.5)) + Number(!user.hand?.magic ? 0 : user.hand.magic) + Number(!user.hat?.magic ? 0 : user.hat.magic) + Number(!user.arm?.magic ? 0 : user.arm.magic) + Number(!user.boot?.magic ? 0 : user.boot.magic) + Number(!user.sub?.magic ? 0 : user.sub.magic) ).toLocaleString() }</span></p>
+                    <p><span>회피율</span><span>{ Math.floor( 10 + ((Number(user.luk) + (Number(user.luk)*0.2) ) * 0.2) ).toLocaleString()}</span></p>
+                    <p><span>명중률</span><span>{ Math.floor( 10 + ((Number(user.dex) + (Number(user.dex)*0.2) ) * 0.2) ).toLocaleString()}</span></p>
+                    <p><span>공격속도</span><span>{ Math.floor(Number(user.dex) + Number(!user.wa?.speed ? 0 : user.wa.speed) + Number(!user.hand?.speed ? 0 : user.hand.speed) + Number(!user.hat?.speed ? 0 : user.hat.speed) + Number(!user.arm?.speed ? 0 : user.arm.speed) + Number(!user.boot?.speed ? 0 : user.boot.speed) + Number(!user.sub?.speed ? 0 : user.sub.speed) )}</span></p>
+                    <p><span>Gold</span><span>{ Number(user.gold) }</span></p>
+                    <p><span>Bluepay</span><span>{ Number(user.vippay) }</span></p>
+                </section>
+            </div>
+            <div className='ch-eq'>
+                <div className="eqpop">
+                    <p>아이템 선택</p>
+                    {
+                        eq && eq?.map((d,num)=>(
+                            !eq[num].state ? 
+                                eq[num].state === 'noItem' ? <p key={eq}>장착 가능한 아이템이 없습니다.</p> :
+                                <div key={num}>
+                                    <p>{d.name}</p>
+                                    <p>{ d.type === "wa" ? `공격력:${d.attr}` : `방어력:${d.dep}` }</p>
+                                    <p>공격속도 : {d.speed}</p>
+                                    <button onClick={()=> { setItem({data:{userId:user.id,type:d.type,id:d.id,attr:d.attr,dep:d.dep,speed:d.speed,icon:d.icon}}) }}>장착</button>
+                                </div>
+                                : <p>장착 가능한 아이템이 없습니다.</p>
+                        ))
+                    }
+                    <button onClick={eqclose}>닫기</button>
+                </div>
+                <div className='eq hat'>
+                    {
+                        user.hat?
+                        <figure>
+                            <img src={`./images/eq/${user.hat?.icon}.png`} alt='' /> 
+                            <figcaption>
+                                <p>{user.hat?.name}</p>
+                                <p>[방어력:{user.hat?.magic}|스피드:{user.hat?.speed}]</p>
+                            </figcaption> 
+                        </figure>
+                        :
+                        <figure>
+                            <img src={`./images/eq/hat.png`} className='none' alt='' />
+                            <figcaption><p>머리</p></figcaption>
+                        </figure>
+                    }
+                    <button onClick={()=> eqset('hat')}>장착</button>
+                </div>
+                <div className='eq arm'>
+                    {
+                        user.arm?
+                        <figure>
+                            <img src={`./images/eq/${user.arm?.icon}.png`} alt='' /> 
+                            <figcaption>
+                                <p>{user.arm?.name}</p>
+                                <p>[방어력:{user.arm?.magic}|스피드:{user.arm?.speed}]</p>
+                            </figcaption> 
+                        </figure>
+                        :
+                        <figure>
+                            <img src={`./images/eq/arm.png`} className='none' alt='' /> 
+                            <figcaption><p>갑옷</p></figcaption>
+                        </figure>
+                    }
+                    <button onClick={()=> eqset('arm')}>장착</button>
+                </div>
+                <div className='eq hand'>
+                    {
+                        user.hand?
+                        <figure>
+                            <img src={`./images/eq/${user.hand?.icon}.png`} alt='' /> 
+                            <figcaption>
+                                <p>{user.hand?.name}</p>
+                                <p>[방어력:{user.hand?.magic}|스피드:{user.hand?.speed}]</p>
+                            </figcaption> 
+                        </figure>
+                        :
+                        <figure>
+                            <img src={`./images/eq/hand.png`} className='none' alt='' /> 
+                            <figcaption><p>장갑</p></figcaption>
+                        </figure>
+
+                    }
+                    <button onClick={()=> eqset('hand')}>장착</button>
+                </div>
+                <div className='eq boot'>
+                    {
+                        user.boot?
+                        <figure>
+                            <img src={`./images/eq/${user.boot?.icon}.png`} alt='' /> 
+                            <figcaption>
+                                <p>{user.boot?.name}</p>
+                                <p>[방어력:{user.boot?.magic}|스피드:{user.boot?.speed}]</p>
+                            </figcaption> 
+                        </figure>
+                        :
+                        <figure>
+                            <img src={`./images/eq/boot.png`} className='none' alt='' /> 
+                            <figcaption><p>신발</p></figcaption>
+                        </figure>
+                    }
+                    <button onClick={()=> eqset('boot')}>장착</button>
+                </div>
+                <div className='eq wa'>
+                    {
+                        user.wa?
+                            <figure>
+                                <img src={`./images/eq/${user.wa?.icon}.png`} alt='' /> 
+                                <figcaption>
+                                    <p>{user.wa?.name}</p>
+                                    <p>[방어력:{user.wa?.magic}|스피드:{user.wa?.speed}]</p>
+                                </figcaption> 
+                            </figure>
+                        :
+                        <figure>
+                            <img src={`./images/eq/wa.png`} className='none' alt='' /> 
+                            <figcaption><p>무기</p></figcaption>
+                        </figure>
+                    }
+                    <button onClick={()=> eqset('wa')}>장착</button>                    
+                </div>
+                <div className='eq sub'>
+                    {
+                        user.sub?
+                            <figure>
+                                <img src={`./images/eq/${user.sub?.icon}.png`} alt='' /> 
+                                <figcaption>
+                                    <p>{user.sub?.name}</p>
+                                    <p>[방어력:{user.sub?.magic}|스피드:{user.sub?.speed}]</p>
+                                </figcaption> 
+                            </figure>
+                        :
+                        <figure>
+                            <img src={`./images/eq/sub.png`} className='none' alt='' /> 
+                            <figcaption><p>보조</p></figcaption>
+                        </figure>
+                    }
+                    <button onClick={()=> eqset('sub')}>장착</button>     
+                </div>
+            </div>
+        </main>
+
+        <Footer id={id} />
      </div>
   )
 }

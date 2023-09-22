@@ -45,15 +45,15 @@ export default function Town() {
                         </div>
                         <div>
                             <p>퀘스트를 수령하고 완료 할 수 있습니다. -</p>
-                            <p>자신의 소속과 전체 랭킹을 확인 할 수 있습니다. -</p>
-                            <p>유저간 골드 송금이 가능해집니다.-</p>
+                            <p>랭킹을 확인 할 수 있습니다. -</p>
+                            <p>유저간 골드 송금-</p>
                         </div>
                     </div>
                 </section>
                 <section>
                     <button onClick={ready}> 모험가 길드 </button>
-                    <button onClick={ready}> 명예의전당 </button>
-                    <button onClick={ready}> 은행 </button>
+                    <button onClick={()=>{ gotown('ranking') }}> 명예의전당 </button>
+                    <button onClick={()=>{ gotown('bank') }}> 은행 </button>
                 </section>
             </div>
             <div className="townlog">

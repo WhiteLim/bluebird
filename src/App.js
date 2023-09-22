@@ -15,6 +15,8 @@ import Town from './com/Town';
 import Store from './com/Store';
 import Eqco from './Eqco';
 import Temple from './com/Temple';
+import Ranking from './com/Ranking';
+import Bank from './com/Bank';
 
 
 function App() {
@@ -36,6 +38,8 @@ function App() {
             <Route path='/town' element = { <Town /> } />
             <Route path='/store' element = { <Store /> } />
             <Route path='/temple' element = { <Temple /> } />
+            <Route path='/ranking' element = { <Ranking /> } />
+            <Route path='/bank' element = { <Bank /> } />
           </Routes>
         </BrowserRouter>
       </Eqco>

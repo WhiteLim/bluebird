@@ -21,22 +21,22 @@ export default function Temple() {
     }
     
     function prea(){
-        let removeGold = Math.floor( Number(user.prea) <= 0 ? '500' : 500 + (Number(user.prea) * 25) )
+        let removeGold = Math.floor( Number(user.prea) <= 0 ? '500' : 500 + (Number(user.prea) * 70) )
         let settingGlod = Number(user.gold) - removeGold;
         if(settingGlod <= 0) {
             alert("소지금이 적어 기도드릴 수 없습니다.")
             return false;
         } else {
             let addprea = Math.floor( Math.random() * removeGold )
-            let prea = Number(user.prea) + (addprea /  2);
-            let addPoint = Number(user.prea) * 0.0002;
-            let str = Math.floor( Number(user.str) + ( Number(user.str) * addPoint ) )
-            let dex = Math.floor( Number(user.dex) + ( Number(user.dex) * addPoint ) )
-            let hea = Math.floor( Number(user.hea) + ( Number(user.hea) * addPoint ) )
-            let luk = Math.floor( Number(user.luk) + ( Number(user.luk) * addPoint ) )
-            let int = Math.floor( Number(user.int) + ( Number(user.int) * addPoint ) )
-            let wis = Math.floor( Number(user.wis) + ( Number(user.wis) * addPoint ) )
-            let maind = Math.floor( Number(user.maind) + ( Number(user.maind) * addPoint ) )
+            let prea = Math.floor( Number(user.prea) + (addprea *  0.05) )
+            let addPoint = Number(prea) * 0.0002;
+            let str = Math.floor( Number(user.str) + ( Number(user.str) * 0.15 ) )
+            let dex = Math.floor( Number(user.dex) + ( Number(user.dex) * 0.15 ) )
+            let hea = Math.floor( Number(user.hea) + ( Number(user.hea) * 0.15 ) )
+            let luk = Math.floor( Number(user.luk) + ( Number(user.luk) * 0.15 ) )
+            let int = Math.floor( Number(user.int) + ( Number(user.int) * 0.15 ) )
+            let wis = Math.floor( Number(user.wis) + ( Number(user.wis) * 0.15 ) )
+            let maind = Math.floor( Number(user.maind) + ( Number(user.maind) * 0.15 ) )
             fetchFn("prea",{"id":user.id,"prea":prea,"gold":settingGlod,"str":str,"dex":dex,"hea":hea,"luk":luk,"int":int,"wis":wis,"maind":maind})
         }
     }
@@ -88,7 +88,7 @@ export default function Temple() {
                                 <p>신께 기도를 드리겠나?</p>
                                 <div className='pr'>
                                     <p>현재 신앙심 : {Number(user.prea)}</p>
-                                    <label>기도 금액 : { Math.floor( Number(user.prea) <= 0 ? '500' : 500 + (Number(user.prea) * 25)).toLocaleString() }Gold <button onClick={prea}>기도드리기</button></label>
+                                    <label>기도 금액 : { Math.floor( Number(user.prea) <= 0 ? '500' : 500 + (Number(user.prea) * 70)).toLocaleString() }Gold <button onClick={prea}>기도드리기</button></label>
                                 </div>
                             </> 
                         }

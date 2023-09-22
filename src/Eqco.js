@@ -24,6 +24,14 @@ export default function Eqco({children }) {
                 res = await instance.post(`/usereq`, data); 
                 at = res.data
             break;
+            case 'finduser' : 
+                res = await instance.post(`/finduser`, data);
+                at = res.data
+            break;
+            case 'receive' : 
+                res = await instance.post(`/receive`, data);
+                at = res.data
+            break;
             default : console.log(server,data)
         }
         dis({server,d:at})

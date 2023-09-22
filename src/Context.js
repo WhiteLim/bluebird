@@ -65,6 +65,9 @@ export default function Context({children }) {
             case 'prea' :
                 res = await instance.post(`/prea`, data);
             break;
+            case 'send' :
+                res = await instance.post(`/send`, data);
+            break;
             default : console.log('not'); ;
         }
         subtype !== 'invan' ? dispatch({type, d:res.data}) : dispatch({type, d:res.data, i:invan.data, subtype});

@@ -9,7 +9,13 @@ export default function Battle() {
     const {state} = useLocation();
     const {data,fetchFn} = useContext(MyContext);
     useEffect(()=>{ 
-        fetchFn('userdata',state.id); 
+        fetchFn('userdata',state.id);
+
+        setTimeout(()=>{
+            const header = document.querySelector('.ingame header ul')
+            header.style.display='none';
+            BattleStart();
+        },200)
     },[])
     const moster_arr = {
         "1": [ {id:1,name:"허수아비",lv:1,hp:50,mp:0,att:10,dep:20,speed:0,attA:0,dex:0,gold:10,exp:10} ],
@@ -20,10 +26,13 @@ export default function Battle() {
     }
 
  if(!data || data.length <= 0 || data.length > 1) return <></>;
-
-        setTimeout(()=>{
-            let user = data[0],tag='',getGold,getexp;
-            const log = document.querySelector('.log')
+    function BattleStart(){
+            const header = document.querySelector('.ingame header ul')
+            header.style.display='none';
+            let user = data[0],tag='',getGold,getexp,poptag='';
+            const log = document.querySelector('.log');
+            const endbatteA = document.querySelector('.endbattle')
+            const endbatte = document.querySelector('.endbattle > div')
             let userAtt =  Math.floor( 100 + (Number(user.str) + ( Number(user.str) * 0.5)) + Number(!user.wa?.magic ? 0 : user.wa.magic) )
             let userDep =  Math.floor( 100 + (Number(user.hea) + ( Number(user.hea) * 0.5)) + Number(!user.hand?.magic ? 0 : user.hand.magic) + Number(!user.hat?.magic ? 0 : user.hat.magic) + Number(!user.arm?.magic ? 0 : user.arm.magic) + Number(!user.boot?.magic ? 0 : user.boot.magic) )
             let anerDep =  moster_arr[state.monster][0].dep;
@@ -56,14 +65,15 @@ export default function Battle() {
                             tag += `<p> 전투 종료 </p>`
                             getGold =  Math.floor( Math.random() * moster_arr[state.monster][0].gold + moster_arr[preMonster][0].gold)
                             getexp = Math.floor( Math.random() * moster_arr[state.monster][0].exp + moster_arr[preMonster][0].exp)
-                            tag += `<p> 보상으로 ${getGold}Gold 와 ${getexp}Exp를 얻었다.</p>`
+                            poptag += `<h3>Draw !! </h3>`
+                            poptag += `<p> 보상으로 ${getGold}Gold 와 ${getexp}Exp를 얻었다.</p>`
                         } else {
                             tag += `<p> [회피 실패!] ${user.nick}은(는) ${Aedamege}를 입었다!</p>`
                             tag += `<p> ${user.nick}의 남은체력 ${userMaxhp - Aedamege}</p>`
-                            tag += `<p> 전투 종료 </p>`
+                            poptag += `<h3>Draw !! </h3>`
                             getGold =  Math.floor( Math.random() * moster_arr[state.monster][0].gold + moster_arr[preMonster][0].gold)
                             getexp = Math.floor( Math.random() * moster_arr[state.monster][0].exp + moster_arr[preMonster][0].exp)
-                            tag += `<p> 보상으로 ${getGold}Gold 와 ${getexp}Exp를 얻었다.</p>`
+                            poptag += `<p> 보상으로 ${getGold}Gold 와 ${getexp}Exp를 얻었다.</p>`
 
                         }
                 } else {
@@ -72,25 +82,25 @@ export default function Battle() {
                     tag += `<br>`;
                     if( (moster_arr[state.monster][0].hp-damege) <= 0) {
                         tag += `<p>${moster_arr[state.monster][0].name} 사망!</p>`
-                        tag += `<p>승리!!</p>`
+                        poptag += `<h3>Victory!!</h3>`
                         getGold = moster_arr[state.monster][0].gold * 2
                         getexp = moster_arr[state.monster][0].exp * 2
-                        tag += `<p> 보상으로 ${getGold}Gold 와 ${getexp}Exp를 얻었다.</p>`
+                        poptag += `<p> 보상으로 ${getGold}Gold 와 ${getexp}Exp를 얻었다.</p>`
                     } else {
                         tag += `[${moster_arr[state.monster][0].name}의 공격] ${user.nick}에게 ${Aedamege}의 대미지!`
                         if(userattrheab > attb){
                             tag += `<p> 그러나 ${user.nick}은(는) 공격을 피했다!!</p>`
-                            tag += `<p> 전투 종료 </p>`
+                            poptag += `<h3>Draw !! </h3>`
                             getGold =  Math.floor( Math.random() * moster_arr[state.monster][0].gold + moster_arr[preMonster][0].gold)
                             getexp = Math.floor( Math.random() * moster_arr[state.monster][0].exp + moster_arr[preMonster][0].exp)
-                            tag += `<p> 보상으로 ${getGold}Gold 와 ${getexp}Exp를 얻었다.</p>`
+                            poptag += `<p> 보상으로 ${getGold}Gold 와 ${getexp}Exp를 얻었다.</p>`
                         } else {
                             tag += `<p> [회피 실패!] ${user.nick}은(는) ${Aedamege}를 입었다!</p>`
                             tag += `<p> ${user.nick}의 남은체력 ${userMaxhp - Aedamege}</p>`
-                            tag += `<p> 전투 종료 </p>`
+                            poptag += `<h3>Draw !! </h3>`
                             getGold =  Math.floor( Math.random() * moster_arr[state.monster][0].gold + moster_arr[preMonster][0].gold)
                             getexp = Math.floor( Math.random() * moster_arr[state.monster][0].exp + moster_arr[preMonster][0].exp)
-                            tag += `<p> 보상으로 ${getGold}Gold 와 ${getexp}Exp를 얻었다.</p>`
+                            poptag += `<p> 보상으로 ${getGold}Gold 와 ${getexp}Exp를 얻었다.</p>`
 
                         }
                     }
@@ -108,24 +118,24 @@ export default function Battle() {
                     tag += `${moster_arr[state.monster][0].name}에게 ${damege}의 대미지!`
                     if(heab > userattrattb){
                         tag += `<p> 그러나 ${moster_arr[state.monster][0].name}은(는) 공격을 피했다!!</p>`
-                        tag += `<p> 전투 종료 </p>`
+                        poptag += `<h3>Draw !! </h3>`
                         getGold =  Math.floor( Math.random() * moster_arr[state.monster][0].gold + moster_arr[preMonster][0].gold)
                         getexp = Math.floor( Math.random() * moster_arr[state.monster][0].exp + moster_arr[preMonster][0].exp)
-                        tag += `<p> 보상으로 ${getGold}Gold 와 ${getexp}Exp를 얻었다.</p>`
+                        poptag += `<p> 보상으로 ${getGold}Gold 와 ${getexp}Exp를 얻었다.</p>`
                     } else {
                         tag += `<p> [회피 실패!] ${moster_arr[state.monster][0].name}은(는) ${damege}를 입었다!</p>`
                         tag += `<p> ${moster_arr[state.monster][0].name}의 남은 체력 ${moster_arr[state.monster][0].hp - damege}</p>`
                         if( (moster_arr[state.monster][0].hp-damege) <= 0) {
                             tag += `<p>${moster_arr[state.monster][0].name} 사망!</p>`
-                            tag += `<p>승리!!</p>`
+                            poptag += `<h3>Victory!!</h3>`
                             getGold = moster_arr[state.monster][0].gold * 2
                             getexp = moster_arr[state.monster][0].exp * 2
-                            tag += `<p> 보상으로 ${getGold}Gold 와 ${getexp}Exp를 얻었다.</p>`
+                            poptag += `<p> 보상으로 ${getGold}Gold 와 ${getexp}Exp를 얻었다.</p>`
                         } else {
-                            tag += `<p> 전투 종료 </p>`
+                            poptag += `<h3>Draw !! </h3>`
                             getGold =  Math.floor( Math.random() * moster_arr[state.monster][0].gold + moster_arr[preMonster][0].gold)
                             getexp = Math.floor( Math.random() * moster_arr[state.monster][0].exp + moster_arr[preMonster][0].exp)
-                            tag += `<p> 보상으로 ${getGold}Gold 와 ${getexp}Exp를 얻었다.</p>`
+                            poptag += `<p> 보상으로 ${getGold}Gold 와 ${getexp}Exp를 얻었다.</p>`
                         }
                     }
                 } else {
@@ -133,33 +143,33 @@ export default function Battle() {
                     tag += `<p> ${user.nick}의 남은체력 ${userMaxhp - Aedamege}</p>`
                     if( (userMaxhp - Aedamege) <= 0){
                         tag += `<p> ${user.nick}은 힘을 다했다.. </p>`
-                        tag += `<p> 전투 종료 </p>`
-                        tag += `<p> 보상으로 아무것도 얻지 못했다. </p>`
+                        poptag += `<h3>Defeat...</h3>`
+                        poptag += `<p> 보상으로 아무것도 얻지 못했다. </p>`
                     } else {
                         tag += `<br>`
                         tag += `${moster_arr[state.monster][0].name}에게 ${damege}의 대미지!`
                         tag += `<br>`
                         if(heab > userattrattb){
                             tag += `<p> 그러나 ${moster_arr[state.monster][0].name}은(는) 공격을 피했다!!</p>`
-                            tag += `<p> 전투 종료 </p>`
+                            poptag += `<h3>Draw !! </h3>`
                             getGold =  Math.floor( Math.random() * moster_arr[state.monster][0].gold + moster_arr[preMonster][0].gold)
                             getexp = Math.floor( Math.random() * moster_arr[state.monster][0].exp + moster_arr[preMonster][0].exp)
-                            tag += `<p> 보상으로 ${getGold}Gold 와 ${getexp}Exp를 얻었다.</p>`
+                            poptag += `<p> 보상으로 ${getGold}Gold 와 ${getexp}Exp를 얻었다.</p>`
                         } else {
                             tag += `<p> [회피 실패!] ${moster_arr[state.monster][0].name}은(는) ${damege}를 입었다!</p>`
                             tag += `<br>`
                             tag += `<p> ${moster_arr[state.monster][0].name}의 남은 체력 ${moster_arr[state.monster][0].hp - damege}</p>`
                             if( (moster_arr[state.monster][0].hp-damege) <= 0) {
                                 tag += `<p>${moster_arr[state.monster][0].name} 사망!</p>`
-                                tag += `<p>승리!!</p>`
+                                poptag += `<h3>Victory!!</h3>`
                                 getGold = moster_arr[state.monster][0].gold * 2
                                 getexp = moster_arr[state.monster][0].exp * 2
-                                tag += `<p> 보상으로 ${getGold}Gold 와 ${getexp}Exp를 얻었다.</p>`
+                                poptag += `<p> 보상으로 ${getGold}Gold 와 ${getexp}Exp를 얻었다.</p>`
                             } else {
-                                tag += `<p> 전투 종료 </p>`
+                                poptag += `<h3>Draw !! </h3>`
                                 getGold =  Math.floor( Math.random() * moster_arr[state.monster][0].gold + moster_arr[preMonster][0].gold)
                                 getexp = Math.floor( Math.random() * moster_arr[state.monster][0].exp + moster_arr[preMonster][0].exp)
-                                tag += `<p> 보상으로 ${getGold}Gold 와 ${getexp}Exp를 얻었다.</p>`
+                                poptag += `<p> 보상으로 ${getGold}Gold 와 ${getexp}Exp를 얻었다.</p>`
                             }
                         }
                     }
@@ -168,58 +178,71 @@ export default function Battle() {
             let addexp = Math.floor( (!getexp ? 0 :  getexp) * (Number(user.wis) * 0.01) );
             let exp = Number(user.exp) + (!getexp ? 0 :  getexp) + addexp ;
             let gold = Number(user.gold) + (!getGold ? 0 : getGold);
-            tag += `지혜스텟에 영향으로 ${addexp}경험치를 추가로 획득했습니다.`;
+            poptag += `지혜스텟에 영향으로 ${addexp}경험치를 추가로 획득했습니다.`;
             if(exp >= user.nextexp) { 
-                tag += ` <h4> ${user.nick} Level Up!! ( ${user.lv} -> ${Number(user.lv) + 1} ) </h4>` 
+                poptag += ` <h4> ${user.nick} Level Up!! ( ${user.lv} -> ${Number(user.lv) + 1} ) </h4>` 
                 let nextexps = Number(user.nextexp) + (Number(user.nextexp) * 0.15), point = Number(user.point) + 5;
+                poptag += `<p>다음 레벨업까지 남은 경험치 : ${user.nextexp}</p>`
+                poptag += `<p>Gold : ${gold}</p>`
                 fetchFn('battle',{id:user.id,exp:0,nextexp:nextexps,lv: Number(user.lv)+1,gold,point});
             } else {
+                poptag += `<p>다음 레벨업까지 남은 경험치 : ${user.nextexp - exp}</p>`
+                poptag += `<p>Gold : ${Number(gold).toLocaleString()}</p>`
                 fetchFn('battle',{id:user.id,exp,gold});
             }
             log.innerHTML=tag;
-        },200)
+            setTimeout(()=>{
+                endbatte.innerHTML+=poptag;
+                endbatteA.style.display = "flex"
+                header.style.display='flex';
+            },1500)
+    }
         
   return (
     <div className='ingame'>
         <Header id={state.id} />
-        <main className='map'>
-            <section className='battle'>
-                <p>{data[0].nick} ( Lv.{data[0].lv} ) vs {moster_arr[state.monster][0].name} ( Lv.{moster_arr[state.monster][0].lv} ) </p>
-                <div>
-                    <figure>
-                        <img src="./images/battlebg/keep.png" alt="" />
-                    </figure>
-                    <section>
-                        <figure><img src={`/images/usericon/${data[0].usericon}.png`} alt='' /></figure>
-                        <figure><img src={`/images/monster/${moster_arr[state.monster][0].id}.png`} alt='' /></figure>
-                    </section>
-                </div>
-                <div className='info'>
-                    <div>
-                        <p>{data[0].nick}</p>
-                        <p>HP : { Math.floor(Number(data[0].maxhp) + ( Number(data[0].hea) + ( Number(data[0].hea) * 10.25))) }</p>
-                        <p>공격력 : { Math.floor( 100 + (Number(data[0].str) + ( Number(data[0].str) * 0.5)) + Number(!data[0].wa?.magic ? 0 : data[0].wa.magic) ) }</p>
-                        <p>방어력 : { Math.floor( 50 + (Number(data[0].hea) + ( Number(data[0].hea) * 0.5)) + Number(!data[0].hand?.magic ? 0 : data[0].hand.magic) + Number(!data[0].hat?.magic ? 0 : data[0].hat.magic) + Number(!data[0].arm?.magic ? 0 : data[0].arm.magic) + Number(!data[0].boot?.magic ? 0 : data[0].boot.magic) ) }</p>
+        <main className='mpabattle'>
+            <section className='userdata'>
+                <figure>
+                    <p><img src={`/images/usericon/${data[0].usericon}.png`} alt='' /></p>
+                    <figcaption>
+                        <p>{data[0].nick} ( Lv.{data[0].lv} )</p>
+                        <p>HP : { Math.floor(Number(data[0].maxhp) + ( Number(data[0].hea) + ( Number(data[0].hea) * 10.25))) } / MP : { Math.floor(Number(data[0].maxmp) + ( Number(data[0].maind) + ( Number(data[0].maind) * 10.25))) }</p>
+                        <p>
+                            공격력 : { Math.floor( 100 + (Number(data[0].str) + ( Number(data[0].str) * 0.5)) + Number(!data[0].wa?.magic ? 0 : data[0].wa.magic) ) } / 
+                            방어력 : { Math.floor( 50 + (Number(data[0].hea) + ( Number(data[0].hea) * 0.5)) + Number(!data[0].hand?.magic ? 0 : data[0].hand.magic) + Number(!data[0].hat?.magic ? 0 : data[0].hat.magic) + Number(!data[0].arm?.magic ? 0 : data[0].arm.magic) + Number(!data[0].boot?.magic ? 0 : data[0].boot.magic) ) }
+                        </p>
+                        <p>회피율 : { Math.floor( 10 + ((Number(data[0].luk) + (Number(data[0].luk)*0.2) ) * 0.2) )} / 명중률 : { Math.floor( 10 + ((Number(data[0].dex) + (Number(data[0].dex)*0.2) ) * 0.2) )}</p>
                         <p>공격속도 : {Math.floor( Number(data[0].dex) + Number(!data[0].wa?.speed ? 0 : data[0].wa.speed) + Number(!data[0].hand?.speed ? 0 : data[0].hand.speed) + Number(!data[0].hat?.speed ? 0 : data[0].hat.speed) + Number(!data[0].arm?.speed ? 0 : data[0].arm.speed) + Number(!data[0].boot?.speed ? 0 : data[0].boot.speed) )} </p>
-                        <p>회피율 : { Math.floor( 10 + ((Number(data[0].luk) + (Number(data[0].luk)*0.2) ) * 0.2) )}</p>
-                        <p>명중률 : { Math.floor( 10 + ((Number(data[0].dex) + (Number(data[0].dex)*0.2) ) * 0.2) )}</p>
-                    </div>
-                    <div>
-                        <p> {moster_arr[state.monster][0].name }</p>
-                        <p>HP : { moster_arr[state.monster][0].hp }</p>
-                        <p>공격력 : {moster_arr[state.monster][0].att}</p>
-                        <p>방어력 : {moster_arr[state.monster][0].dep}</p>
-                        <p>공격속도 : {moster_arr[state.monster][0].speed}</p>
-                        <p>회피율 : {moster_arr[state.monster][0].attA}</p>
-                        <p>명중률 : {moster_arr[state.monster][0].attA}</p>
-                    </div>
-                </div>
-                
-                <div className='log'>
-                </div>
-                <Link to='/main/map' state={{id:state.id}}>전투 종료</Link>
+                    </figcaption>
+                </figure>
             </section>
+            <section className='vs'>vs</section>
+            <section className='monsterdata'>
+                <figure>
+                    <p><img src={`/images/monster/${moster_arr[state.monster][0].id}.png`} alt='' /></p>
+                    <figcaption>
+                        <p>{moster_arr[state.monster][0].name} ( Lv.{moster_arr[state.monster][0].lv} )</p>
+                        <p>HP : { moster_arr[state.monster][0].hp } / MP : { moster_arr[state.monster][0].mp }</p>
+                        <p>공격력 : {moster_arr[state.monster][0].att} / 방어력 : {moster_arr[state.monster][0].dep}</p>
+                        <p>회피율 : {moster_arr[state.monster][0].attA} / 명중률 : {moster_arr[state.monster][0].attA}</p>
+                        <p>공격속도 : {moster_arr[state.monster][0].speed}</p>
+                    </figcaption>
+                </figure>
+            </section>
+            
+            <div className='endbattle'>
+                <div>
+                </div>
+                <section>
+                    <Link to='/main/map' state={{id:state.id}}>전투종료</Link>
+                </section>
+            </div>
         </main>
+        <article className='battle'>
+            <h2>전투 로그</h2>
+            <div className='log'></div>
+        </article>
         <Footer id={state.id} />
     </div>
   )
