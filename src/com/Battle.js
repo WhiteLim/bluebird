@@ -19,11 +19,15 @@ export default function Battle() {
     },[])
     const moster_arr = {
         "1": [ {id:1,name:"허수아비",lv:1,hp:50,mp:0,att:10,dep:20,speed:0,attA:0,dex:0,gold:10,exp:10} ],
-        "2": [ {id:2,name:"목각인형",lv:5,hp:150,mp:0,att:50,dep:40,speed:10,attA:10,dex:10,gold:40,exp:100} ],
-        "3": [ {id:3,name:"나무병정",lv:10,hp:200,mp:0,att:200,dep:100,speed:50,attA:100,dex:100,gold:100,exp:200} ],
-        "4": [ {id:4,name:"훈련교관",lv:20,hp:700,mp:0,att:500,dep:500,speed:150,attA:200,dex:200,gold:500,exp:400} ],
-        "5": [ {id:5,name:"칼날의 시험",lv:50,hp:1000,mp:0,att:1000,dep:1000,speed:300,attA:600,dex:600,gold:1500,exp:1500} ],
-        "6": [ {id:6,name:"온순한 양",lv:5,hp:100,mp:0,att:50,dep:50,speed:5,attA:20,dex:20,gold:300,exp:300} ]
+        "2": [ {id:2,name:"목각인형",lv:5,hp:150,mp:0,att:50,dep:40,speed:10,attA:10,dex:10,gold:20,exp:30} ],
+        "3": [ {id:3,name:"나무병정",lv:10,hp:200,mp:0,att:200,dep:100,speed:50,attA:100,dex:100,gold:30,exp:40} ],
+        "4": [ {id:4,name:"훈련교관",lv:20,hp:700,mp:0,att:1000,dep:500,speed:150,attA:200,dex:200,gold:50,exp:60} ],
+        "5": [ {id:5,name:"칼날의 시험",lv:50,hp:1000,mp:0,att:3000,dep:3000,speed:300,attA:600,dex:600,gold:70,exp:80} ],
+        "6": [ {id:6,name:"온순한 양",lv:5,hp:100,mp:0,att:50,dep:50,speed:5,attA:20,dex:20,gold:30,exp:30} ],
+        "7": [ {id:7,name:"화난 양",lv:10,hp:80,mp:0,att:100,dep:30,speed:25,attA:70,dex:70,gold:40,exp:40} ],
+        "8": [ {id:8,name:"보아뱀",lv:15,hp:200,mp:0,att:150,dep:90,speed:80,attA:100,dex:100,gold:60,exp:60} ],
+        "9": [ {id:9,name:"늑대",lv:20,hp:500,mp:0,att:300,dep:200,speed:150,attA:120,dex:120,gold:80,exp:80} ],
+        "10": [ {id:10,name:"독 나비",lv:25,hp:700,mp:0,att:500,dep:300,speed:400,attA:300,dex:300,gold:100,exp:100} ]
     }
 
  if(!data || data.length <= 0 || data.length > 1) return <></>;
@@ -46,7 +50,7 @@ export default function Battle() {
             let attb = Math.floor( Math.random() * moster_arr[state.monster][0].attA )
             let userattrattb = Math.floor( Math.random() * (Math.floor( 10 + ((Number(data[0].dex) + (Number(data[0].dex)*0.2) ) * 0.2) )))
             let userattrheab = Math.floor( Math.random() * (Math.floor( 10 + ((Number(data[0].luk) + (Number(data[0].luk)*0.2) ) * 0.2) )))
-            let preMonster = state.monster !== 1 ? state.monster-1 : 1;
+            let preMonster = state.monster !== 1 ? 10 * moster_arr[state.monster][0].lv  : 1;
 
             damege <= 0 ? damege=0 : damege=damege;
             Aedamege <= 0 ? Aedamege=0 : Aedamege=Aedamege;
@@ -64,16 +68,16 @@ export default function Battle() {
                         if(userattrheab > attb){
                             tag += `<p> 그러나 ${user.nick}은(는) 공격을 피했다!!</p>`
                             tag += `<p> 전투 종료 </p>`
-                            getGold =  Math.floor( Math.random() * moster_arr[state.monster][0].gold + moster_arr[preMonster][0].gold)
-                            getexp = Math.floor( Math.random() * moster_arr[state.monster][0].exp + moster_arr[preMonster][0].exp)
+                            getGold =  Math.floor( Math.random() * moster_arr[state.monster][0].gold + preMonster)
+                            getexp = Math.floor( Math.random() * moster_arr[state.monster][0].exp + preMonster)
                             poptag += `<h3>Draw !! </h3>`
                             poptag += `<p> 보상으로 ${getGold}Gold 와 ${getexp}Exp를 얻었다.</p>`
                         } else {
                             tag += `<p> [회피 실패!] ${user.nick}은(는) ${Aedamege}를 입었다!</p>`
                             tag += `<p> ${user.nick}의 남은체력 ${userMaxhp - Aedamege}</p>`
                             poptag += `<h3>Draw !! </h3>`
-                            getGold =  Math.floor( Math.random() * moster_arr[state.monster][0].gold + moster_arr[preMonster][0].gold)
-                            getexp = Math.floor( Math.random() * moster_arr[state.monster][0].exp + moster_arr[preMonster][0].exp)
+                            getGold =  Math.floor( Math.random() * moster_arr[state.monster][0].gold + preMonster)
+                            getexp = Math.floor( Math.random() * moster_arr[state.monster][0].exp + preMonster)
                             poptag += `<p> 보상으로 ${getGold}Gold 와 ${getexp}Exp를 얻었다.</p>`
 
                         }
@@ -92,15 +96,15 @@ export default function Battle() {
                         if(userattrheab > attb){
                             tag += `<p> 그러나 ${user.nick}은(는) 공격을 피했다!!</p>`
                             poptag += `<h3>Draw !! </h3>`
-                            getGold =  Math.floor( Math.random() * moster_arr[state.monster][0].gold + moster_arr[preMonster][0].gold)
-                            getexp = Math.floor( Math.random() * moster_arr[state.monster][0].exp + moster_arr[preMonster][0].exp)
+                            getGold =  Math.floor( Math.random() * moster_arr[state.monster][0].gold + preMonster)
+                            getexp = Math.floor( Math.random() * moster_arr[state.monster][0].exp + preMonster)
                             poptag += `<p> 보상으로 ${getGold}Gold 와 ${getexp}Exp를 얻었다.</p>`
                         } else {
                             tag += `<p> [회피 실패!] ${user.nick}은(는) ${Aedamege}를 입었다!</p>`
                             tag += `<p> ${user.nick}의 남은체력 ${userMaxhp - Aedamege}</p>`
                             poptag += `<h3>Draw !! </h3>`
-                            getGold =  Math.floor( Math.random() * moster_arr[state.monster][0].gold + moster_arr[preMonster][0].gold)
-                            getexp = Math.floor( Math.random() * moster_arr[state.monster][0].exp + moster_arr[preMonster][0].exp)
+                            getGold =  Math.floor( Math.random() * moster_arr[state.monster][0].gold + preMonster)
+                            getexp = Math.floor( Math.random() * moster_arr[state.monster][0].exp + preMonster)
                             poptag += `<p> 보상으로 ${getGold}Gold 와 ${getexp}Exp를 얻었다.</p>`
 
                         }
@@ -120,8 +124,8 @@ export default function Battle() {
                     if(heab > userattrattb){
                         tag += `<p> 그러나 ${moster_arr[state.monster][0].name}은(는) 공격을 피했다!!</p>`
                         poptag += `<h3>Draw !! </h3>`
-                        getGold =  Math.floor( Math.random() * moster_arr[state.monster][0].gold + moster_arr[preMonster][0].gold)
-                        getexp = Math.floor( Math.random() * moster_arr[state.monster][0].exp + moster_arr[preMonster][0].exp)
+                        getGold =  Math.floor( Math.random() * moster_arr[state.monster][0].gold +preMonster)
+                        getexp = Math.floor( Math.random() * moster_arr[state.monster][0].exp + preMonster)
                         poptag += `<p> 보상으로 ${getGold}Gold 와 ${getexp}Exp를 얻었다.</p>`
                     } else {
                         tag += `<p> [회피 실패!] ${moster_arr[state.monster][0].name}은(는) ${damege}를 입었다!</p>`
@@ -134,8 +138,8 @@ export default function Battle() {
                             poptag += `<p> 보상으로 ${getGold}Gold 와 ${getexp}Exp를 얻었다.</p>`
                         } else {
                             poptag += `<h3>Draw !! </h3>`
-                            getGold =  Math.floor( Math.random() * moster_arr[state.monster][0].gold + moster_arr[preMonster][0].gold)
-                            getexp = Math.floor( Math.random() * moster_arr[state.monster][0].exp + moster_arr[preMonster][0].exp)
+                            getGold =  Math.floor( Math.random() * moster_arr[state.monster][0].gold + preMonster)
+                            getexp = Math.floor( Math.random() * moster_arr[state.monster][0].exp + preMonster)
                             poptag += `<p> 보상으로 ${getGold}Gold 와 ${getexp}Exp를 얻었다.</p>`
                         }
                     }
@@ -153,8 +157,8 @@ export default function Battle() {
                         if(heab > userattrattb){
                             tag += `<p> 그러나 ${moster_arr[state.monster][0].name}은(는) 공격을 피했다!!</p>`
                             poptag += `<h3>Draw !! </h3>`
-                            getGold =  Math.floor( Math.random() * moster_arr[state.monster][0].gold + moster_arr[preMonster][0].gold)
-                            getexp = Math.floor( Math.random() * moster_arr[state.monster][0].exp + moster_arr[preMonster][0].exp)
+                            getGold =  Math.floor( Math.random() * moster_arr[state.monster][0].gold + preMonster)
+                            getexp = Math.floor( Math.random() * moster_arr[state.monster][0].exp + preMonster)
                             poptag += `<p> 보상으로 ${getGold}Gold 와 ${getexp}Exp를 얻었다.</p>`
                         } else {
                             tag += `<p> [회피 실패!] ${moster_arr[state.monster][0].name}은(는) ${damege}를 입었다!</p>`
@@ -168,8 +172,8 @@ export default function Battle() {
                                 poptag += `<p> 보상으로 ${getGold}Gold 와 ${getexp}Exp를 얻었다.</p>`
                             } else {
                                 poptag += `<h3>Draw !! </h3>`
-                                getGold =  Math.floor( Math.random() * moster_arr[state.monster][0].gold + moster_arr[preMonster][0].gold)
-                                getexp = Math.floor( Math.random() * moster_arr[state.monster][0].exp + moster_arr[preMonster][0].exp)
+                                getGold =  Math.floor( Math.random() * moster_arr[state.monster][0].gold + preMonster)
+                                getexp = Math.floor( Math.random() * moster_arr[state.monster][0].exp + preMonster)
                                 poptag += `<p> 보상으로 ${getGold}Gold 와 ${getexp}Exp를 얻었다.</p>`
                             }
                         }

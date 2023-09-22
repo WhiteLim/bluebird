@@ -31,15 +31,15 @@ export default function Map() {
             <section>
                 <p>성 외곽</p>
                 <ul>
-                    <li> <img src="/images/monster/6.png" alt='' /> <p>온순한 양 (Lv.5)</p> <button >사냥하기</button></li>
-                    <li> <img src="/images/monster/7.png" alt='' /> <p>화난 양 (Lv.10)</p> <button >사냥하기</button></li>
-                    <li> <img src="/images/monster/8.png" alt='' /> <p>보아뱀 (Lv.15)</p> <button >사냥하기</button></li>
-                    <li> <img src="/images/monster/9.png" alt='' /> <p>늑대 (Lv.20)</p> <button >사냥하기</button></li>
-                    <li> <img src="/images/monster/10.png" alt='' /> <p>독 나비 (Lv.25)</p> <button >사냥하기</button></li>
+                    <li> <img src="/images/monster/6.png" alt='' /> <p>온순한 양 (Lv.5)</p> <button onClick={()=>{ battle('m',6) }}>사냥하기</button></li>
+                    <li> <img src="/images/monster/7.png" alt='' /> <p>화난 양 (Lv.10)</p> <button onClick={()=>{ battle('m',7) }}>사냥하기</button></li>
+                    <li> <img src="/images/monster/8.png" alt='' /> <p>보아뱀 (Lv.15)</p> <button onClick={()=>{ battle('m',8) }}>사냥하기</button></li>
+                    <li> <img src="/images/monster/9.png" alt='' /> <p>늑대 (Lv.20)</p> <button onClick={()=>{ battle('m',9) }}>사냥하기</button></li>
+                    <li> <img src="/images/monster/10.png" alt='' /> <p>독 나비 (Lv.25)</p> <button onClick={()=>{ battle('m',10) }}>사냥하기</button></li>
                 </ul>
             </section>
             <section>
-                <p>황금 골자기</p>
+                <p>황금 골짜기</p>
                 <ul>
                     <li> <img src="/images/monster/9999.png" alt='' /> <p>골드 드래곤 (Lv.1200)</p> <button >사냥하기</button></li>
                 </ul>
