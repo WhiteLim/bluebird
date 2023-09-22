@@ -183,7 +183,7 @@ export default function Battle() {
                 poptag += ` <h4> ${user.nick} Level Up!! ( ${user.lv} -> ${Number(user.lv) + 1} ) </h4>` 
                 let nextexps = Number(user.nextexp) + (Number(user.nextexp) * 0.15), point = Number(user.point) + 5;
                 poptag += `<p>다음 레벨업까지 남은 경험치 : ${user.nextexp}</p>`
-                poptag += `<p>Gold : ${gold}</p>`
+                poptag += `<p>Gold : ${Number(gold).toLocaleString()}</p>`
                 fetchFn('battle',{id:user.id,exp:0,nextexp:nextexps,lv: Number(user.lv)+1,gold,point});
             } else {
                 poptag += `<p>다음 레벨업까지 남은 경험치 : ${user.nextexp - exp}</p>`

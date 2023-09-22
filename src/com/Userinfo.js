@@ -40,7 +40,7 @@ export default function Userinfo({id}) {
     <div className='ingame'>
         <Header id={id} />
         {
-            user.exp <= 0 ?
+            user.exp <= 0 && user.lv <= 1 ?
             <div className='newbi' ref={newbi}> 
                 <div>
                     <img src="./images/usericon/frame-1.png" alt='' />

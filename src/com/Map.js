@@ -1,11 +1,17 @@
-import React from 'react'
+import React, { useContext, useEffect } from 'react'
 import {  useLocation, useNavigate } from 'react-router-dom'
 import Header from '../Header';
 import Footer from '../Footer';
+import { MyContext } from '../Context';
 
 export default function Map() {
     const {state} = useLocation();
     const nav = useNavigate();
+    let id = state.id;
+    
+    const {data,fetchFn} = useContext(MyContext);
+    useEffect(()=>{ fetchFn('userdata',id);},[])
+
     function battle(type,id){ nav('/battle',{state:{id:state.id,type,monster:id}}) }
 
   return (

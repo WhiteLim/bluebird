@@ -9,6 +9,7 @@ export default function Ranking() {
     const {state} = useLocation();
     const {data,fetchFn} = useContext(MyContext);
     useEffect(()=>{ fetchFn('list'); },[])
+    let godList = ["아스트라이아","벨라도르","세레니스","제피루스","아우레오스","엘리오스","에델라인","이리디아","데모스카"]
 
     const setUser = data.sort((a,b)=> b.lv - a.lv)
   return (
@@ -42,7 +43,7 @@ export default function Ranking() {
                             : k+1
                             }</p>
                             <p><img src={`/images/usericon/${v.usericon}.png`} alt='' title='' /></p>
-                            <p>{v.nick}</p>
+                            <p><img src={`/images/godicon/${v.god === '' ? 0 : v.god}.png`} alt={`${v.god === '' ? '무소속' : v.god}`} title={`${v.god === '' ? '무소속' : v.god}`}  width="20px"/>{v.nick}</p>
                             <p>{v.lv}</p>
                             <p>{ v.emp === 'devil' ? '환영사제단(그림 리퍼블릭)' : '신성제국(크로니우스)' }</p>
                         </li>

@@ -210,7 +210,9 @@ button {font-family: 'Ramche';}
         border-bottom: 1px solid #6b6b6b;
         p {
           width: calc(100% /  5);
-          text-align: center;
+          text-align: center;    
+          display: flex;
+          align-items: center;
           img {
             width: 40px;
             &.rankingimages {
@@ -904,6 +906,9 @@ button {font-family: 'Ramche';}
         justify-content: center;
         align-items: center;
         flex-direction: column;
+        flex-wrap: wrap;
+        margin:0 10px;
+        text-align: center;
         > p {
           width: 50px;
           > img {
