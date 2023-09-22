@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from 'react'
+import React, { useContext, useEffect, useRef, useState } from 'react'
 import { MyContext } from "../Context"
 import Header from '../Header';
 import Footer from '../Footer';
@@ -30,14 +30,35 @@ export default function Userinfo({id}) {
         find.style.display='none';
     }
     
+    const newbi = useRef()
     
     if(!data || data.length <= 0 || data.length > 1) return <></>;
   
     let user = data[0];
+    function newbicolse(){ newbi.current.style.display='none' }
   return (
     <div className='ingame'>
         <Header id={id} />
-
+        {
+            user.exp <= 0 ?
+            <div className='newbi' ref={newbi}> 
+                <div>
+                    <img src="./images/usericon/frame-1.png" alt='' />
+                    <p>[성물전쟁 - 블루버드]는 자율 육성 게임에 오신것을 환영합니다.</p>
+                    <p>초보 모험가님을 위해 파견된 GM백림입니다.!</p>
+                    <p>처음 게임에 접속하신 초보 모험가님은 아래 [ 닫기 ] 버튼을 누른 후</p>
+                    <p>[ 사냥터 ] 로 가셔서 [ 허수아비 ]를 잡아주세요</p>
+                    <p>[ 레벨업 ] 안내를 받으면 캐릭터 정보에서 원하는 스텟을 올려주세요.</p>
+                    <p></p>
+                    <p>10레벨이 부터는 신전에서 [ 신 ] 을 선택 할 수 있습니다.</p>
+                    <p>마음에 드는 신을 선택 후 [ 기도 ] 를 하면 스텟이 추가로 더 오릅니다!</p>
+                    <p>그럼 즐겁게 게임을 즐겨주세요~</p>
+                    <span>본 초보자 가이드 팝업은 1회 사냥 전까지 게속 표시 됩니다.</span>
+                    <button onClick={newbicolse}>닫기</button>
+                </div>
+            </div>
+            : ''
+        }
         <main className='character'>
             <div className='ch-info'>
                 <figure>

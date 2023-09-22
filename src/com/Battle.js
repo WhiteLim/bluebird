@@ -176,8 +176,8 @@ export default function Battle() {
                 }
             }
             let addexp = Math.floor( (!getexp ? 0 :  getexp) * (Number(user.wis) * 0.01) );
-            let exp = Number(user.exp) + (!getexp ? 0 :  getexp) + addexp ;
-            let gold = Number(user.gold) + (!getGold ? 0 : getGold);
+            let exp = Number(user.exp) + Number( (!getexp ? 0 :  getexp) + addexp );
+            let gold = Number(user.gold) + Number( (!getGold ? 0 : getGold) );
             poptag += `지혜스텟에 영향으로 ${addexp}경험치를 추가로 획득했습니다.`;
             if(exp >= user.nextexp) { 
                 poptag += ` <h4> ${user.nick} Level Up!! ( ${user.lv} -> ${Number(user.lv) + 1} ) </h4>` 

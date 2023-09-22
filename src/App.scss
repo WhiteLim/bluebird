@@ -114,6 +114,35 @@ button {font-family: 'Ramche';}
   width: 100%;
   position: relative;
 
+  > div.newbi {
+    position: absolute; z-index: 1;
+    width: 100%; height: 100vh;
+    background: rgba(0,0,0,.8);
+    display: flex;
+    justify-content: center; align-items: center;
+    div {
+      padding:20px;
+      text-align: center;
+      p{
+        line-height: 1.6;
+      }
+      span{
+        font-size: 15px;
+        line-height: 2;
+      }
+      img {
+        width: 200px;
+      }
+      button{
+        width: 100%;
+        padding:20px;
+        background: #000;
+        color:#fff;
+        border: 1px solid #fff;
+      }
+    }
+  }
+
   > main.bank{
     section.npc {
       display: flex;

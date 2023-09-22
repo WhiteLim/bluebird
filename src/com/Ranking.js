@@ -17,12 +17,12 @@ export default function Ranking() {
         <main className='ranking'>
             <section className='npc'>
                 <img src={`./images/npc/ranking.png`} alt='' title='명예의 전당 NPC' />
-                <p> (석상이 말을...) <br /> 명예의 전당에 오신것을 환영합니다!! <br /> 여기선 서버 전체의 랭킹을 확인 할 수 있습니다!  </p>
+                <p> (석상이 말을...!!!) <br /> 명예의 전당에 오신것을 환영합니다!! <br /> 여기선 서버 전체의 랭킹을 확인 할 수 있습니다!  </p>
             </section>
             <ul>
                 <li><p>순위</p><p>아이콘</p><p>닉네임</p><p>Lv</p><p>소속</p></li>
                 {
-                    setUser?.map((v,k)=>(
+                    setUser?.slice(0, 100).map((v,k)=>(
                         <li key={k}>
                             <p>{
                             k+1 === 1 ? 
