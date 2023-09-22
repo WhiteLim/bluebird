@@ -54,31 +54,38 @@ export default function Guide() {
                     <li>
                         <p onClick={()=> view(3)}>인벤토리 <span> &#62; </span></p>
                         <div>
-                            개발중..
+                            <p> 유저가 가지고 있는 전체 아이템리스트를 보여줍니다.</p>
                         </div>
                     </li>
                     <li onClick={()=> view(4)}>
                         <p>사냥터 <span> &#62; </span></p>
                         <div>
-                            개발중..
+                            <p> 유저의 능력에 맞는 사냥터에 몬스터를 훈련 또는 사냥하여 레벨업 해주세요.</p>
+                            <p> 전투 시작 후 과부화 방지를 위해 완료까지는 약 1.5초가 걸립니다. </p>
                         </div>
                     </li>
                     <li onClick={()=> view(5)}>
                         <p>대장간 <span> &#62; </span></p>
                         <div>
-                            개발중..
+                            <p> 골드 혹은 몬스터 사냥 후 나온 아이템으로 본인만의 무기를 제작 및 강화할 수 있습니다. </p>
+                            <p> 미구현 </p>
                         </div>
                     </li>
                     <li>
                         <p onClick={()=> view(6)}>상점 <span> &#62; </span></p>
                         <div>
-                            개발중..
+                            <p> 원하는 아이템을 선택하여 구매 해주세요. </p>
+                            <p> 아이템 장착은 캐릭터 정보창에서 장착 가능합니다. </p>
+                            <p> 이미 구매 된 아이템은 중복 구매가 되지 않습니다. </p>
                         </div>
                     </li>
                     <li>
                         <p onClick={()=> view(7)}>신전 <span> &#62; </span></p>
                         <div>
-                            개발중..
+                            <p> 레벨 10 이후부터 신을 섬기고 기도 할 수 있습니다. </p>
+                            <p> 1회차 기도 비용은 500Gold 이며 이후 신앙심에따라 기도 금액이 증가 됩니다. </p>
+                            <p> 기도 후 증가되는 신앙심은 지불 된 Gold 대비 랜덤으로 오릅니다. </p>
+                            <p> 기도 시 전체 능력치가 조금 상승 하게 됩니다. </p>
                         </div>
                     </li>
                 </ul>
@@ -97,8 +104,6 @@ export default function Guide() {
                     <li> <img src="./images/godicon/8.png" alt="" /> 이리디아 <br /> (Iridia) <br /> 물속성 </li>
                     <li> <img src="./images/godicon/9.png" alt="" /> 데모스카 <br /> (Demoska) <br /> 암흑속성 </li>
                 </ul>
-                <br />
-                <p> 속성 대비 능력치 증가율 개발중 </p>
             </article>
         </main>
         <Footer id={state.id} />

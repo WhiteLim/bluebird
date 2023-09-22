@@ -22,7 +22,8 @@ export default function Battle() {
         "2": [ {id:2,name:"목각인형",lv:5,hp:150,mp:0,att:50,dep:40,speed:10,attA:10,dex:10,gold:40,exp:100} ],
         "3": [ {id:3,name:"나무병정",lv:10,hp:200,mp:0,att:200,dep:100,speed:50,attA:100,dex:100,gold:100,exp:200} ],
         "4": [ {id:4,name:"훈련교관",lv:20,hp:700,mp:0,att:500,dep:500,speed:150,attA:200,dex:200,gold:500,exp:400} ],
-        "5": [ {id:5,name:"칼날의 시험",lv:50,hp:1000,mp:0,att:1000,dep:1000,speed:300,attA:600,dex:600,gold:1500,exp:1500} ]
+        "5": [ {id:5,name:"칼날의 시험",lv:50,hp:1000,mp:0,att:1000,dep:1000,speed:300,attA:600,dex:600,gold:1500,exp:1500} ],
+        "6": [ {id:6,name:"온순한 양",lv:5,hp:100,mp:0,att:50,dep:50,speed:5,attA:20,dex:20,gold:300,exp:300} ]
     }
 
  if(!data || data.length <= 0 || data.length > 1) return <></>;
