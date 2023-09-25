@@ -86,6 +86,7 @@ export default function Battle() {
                         if(userattrheab > attb){
                             tag += `<p> 그러나 ${user.nick}은(는) 공격을 피했다!!</p>`
                             setTimeout(() => {
+                                userImages.current.classList.remove('active')
                                 userImages.current.classList.add('hewa')
                             },1500);
                             tag += `<p> 전투 종료 </p>`
