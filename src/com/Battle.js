@@ -137,10 +137,16 @@ export default function Battle() {
                         } else {
                             tag += `<p> [회피 실패!] ${user.nick}은(는) ${Aedamege}를 입었다!</p>`
                             tag += `<p> ${user.nick}의 남은체력 ${userMaxhp - Aedamege}</p>`
-                            poptag += `<h3>Draw !! </h3>`
-                            getGold =  Math.floor( Math.random() * moster_arr[state.monster][0].gold + preMonster)
-                            getexp = Math.floor( Math.random() * moster_arr[state.monster][0].exp + preMonster)
-                            poptag += `<p> 보상으로 ${getGold}Gold 와 ${getexp}Exp를 얻었다.</p>`
+                            if( (userMaxhp - Aedamege) <= 0){
+                                tag += `<p> ${user.nick}은 힘을 다했다.. </p>`
+                                poptag += `<h3>Defeat...</h3>`
+                                poptag += `<p> 보상으로 아무것도 얻지 못했다. </p>`
+                            } else {
+                                poptag += `<h3>Draw !! </h3>`
+                                getGold =  Math.floor( Math.random() * moster_arr[state.monster][0].gold + preMonster)
+                                getexp = Math.floor( Math.random() * moster_arr[state.monster][0].exp + preMonster)
+                                poptag += `<p> 보상으로 ${getGold}Gold 와 ${getexp}Exp를 얻었다.</p>`
+                            }
 
                         }
                     }
