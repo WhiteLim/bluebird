@@ -69,15 +69,20 @@ export default function Battle() {
                 tag += `${moster_arr[state.monster][0].name}에게 ${damege}의 대미지!`
                 userImages.current.classList.add('active')
                 if(heab > userattrattb){
-                    
-                    userImages.current.classList.remove('active')
                     // 몬스터 회피
                     tag += `<p> 그러나 ${moster_arr[state.monster][0].name}은(는) 공격을 피했다!!</p>`
+                    monsterImages.current.classList.add('heaw')
                     tag += `<br>`;
                     tag += `[${moster_arr[state.monster][0].name}의 공격] ${user.nick}에게 ${Aedamege}의 대미지!`
-                    monsterImages.current.classList.add('active')
+                    setTimeout(() => {
+                        monsterImages.current.classList.remove('heaw')
+                        monsterImages.current.classList.add('active')
+                    },1000);
                         if(userattrheab > attb){
                             tag += `<p> 그러나 ${user.nick}은(는) 공격을 피했다!!</p>`
+                            setTimeout(() => {
+                                userImages.current.classList.add('hewa')
+                            },1500);
                             tag += `<p> 전투 종료 </p>`
                             getGold =  Math.floor( Math.random() * moster_arr[state.monster][0].gold + preMonster)
                             getexp = Math.floor( Math.random() * moster_arr[state.monster][0].exp + preMonster)
@@ -98,10 +103,6 @@ export default function Battle() {
                                 poptag += `<p> 보상으로 ${getGold}Gold 와 ${getexp}Exp를 얻었다.</p>`
 
                             }
-
-
-                            
-
                         }
                 } else {
                     tag += `<p> [회피 실패!] ${moster_arr[state.monster][0].name}은(는) ${damege}를 입었다!</p>`
@@ -115,9 +116,15 @@ export default function Battle() {
                         poptag += `<p> 보상으로 ${getGold}Gold 와 ${getexp}Exp를 얻었다.</p>`
                     } else {
                         tag += `[${moster_arr[state.monster][0].name}의 공격] ${user.nick}에게 ${Aedamege}의 대미지!`
-                        monsterImages.current.classList.add('active')
+                        
+                        setTimeout(() => {
+                            monsterImages.current.classList.add('active')
+                        },1000);
                         if(userattrheab > attb){
                             tag += `<p> 그러나 ${user.nick}은(는) 공격을 피했다!!</p>`
+                            setTimeout(() => {
+                                userImages.current.classList.add('hewa')
+                            },1500);
                             poptag += `<h3>Draw !! </h3>`
                             getGold =  Math.floor( Math.random() * moster_arr[state.monster][0].gold + preMonster)
                             getexp = Math.floor( Math.random() * moster_arr[state.monster][0].exp + preMonster)
@@ -138,14 +145,24 @@ export default function Battle() {
                 
             } else {
                 tag += `<p>적의 선제공격!</p>`;
-                tag += `[${moster_arr[state.monster][0].name}의 공격] ${user.nick}에게 ${Aedamege}의 대미지!`
                 monsterImages.current.classList.add('active')
+                tag += `[${moster_arr[state.monster][0].name}의 공격] ${user.nick}에게 ${Aedamege}의 대미지!`
                 if(userattrheab > attb){
                     tag += `<p> 그러나 ${user.nick}은(는) 공격을 피했다!!</p>`
+                    setTimeout(() => {
+                        userImages.current.classList.add('hewa')
+                    },1500);
+
                     tag += `<br>`
                     tag += `${moster_arr[state.monster][0].name}에게 ${damege}의 대미지!`
-                    userImages.current.classList.add('active')
+                    setTimeout(() => {
+                        userImages.current.classList.add('active')
+                    },2000);
+
                     if(heab > userattrattb){
+                        setTimeout(() => {
+                            monsterImages.current.classList.add('heaw')
+                        },1500);
                         tag += `<p> 그러나 ${moster_arr[state.monster][0].name}은(는) 공격을 피했다!!</p>`
                         poptag += `<h3>Draw !! </h3>`
                         getGold =  Math.floor( Math.random() * moster_arr[state.monster][0].gold +preMonster)
@@ -177,9 +194,12 @@ export default function Battle() {
                     } else {
                         tag += `<br>`
                         tag += `${moster_arr[state.monster][0].name}에게 ${damege}의 대미지!`
-                        userImages.current.classList.add('active')
+                        setTimeout(() => { userImages.current.classList.add('active')},1000);
                         tag += `<br>`
                         if(heab > userattrattb){
+                            setTimeout(() => {
+                                monsterImages.current.classList.add('heaw')
+                            },1500);
                             tag += `<p> 그러나 ${moster_arr[state.monster][0].name}은(는) 공격을 피했다!!</p>`
                             poptag += `<h3>Draw !! </h3>`
                             getGold =  Math.floor( Math.random() * moster_arr[state.monster][0].gold + preMonster)
@@ -225,7 +245,7 @@ export default function Battle() {
                 endbatte.innerHTML+=poptag;
                 endbatteA.style.display = "flex"
                 header.style.display='flex';
-            },1500)
+            },2500)
     }
         
   return (

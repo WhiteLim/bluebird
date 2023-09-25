@@ -886,6 +886,9 @@ button {font-family: 'Ramche';}
             img.active {
               animation: usermove .5s forwards linear;
             }
+            img.hewa {
+              animation: usermove .5s forwards linear;
+            }
           }
         }
       }
@@ -901,6 +904,12 @@ button {font-family: 'Ramche';}
         60% {transform: rotate(30deg);}
         100% {transform: rotate(0);}
       }
+      @keyframes hewa {
+        0% {transform: translateX(0);}
+        50% {transform: translateX(0);}
+        60% {transform: translateX(-30%);}
+        100% {transform: translateX(0);}
+      }
       
       &:nth-of-type(3) {
         transform: translateX(100%);
@@ -909,6 +918,9 @@ button {font-family: 'Ramche';}
           p {
             img.active {
               animation: monstermove .5s forwards linear;
+            }
+            img.heaw {
+              animation: mosterhewb .5s forwards linear;
             }
           }
         }
@@ -924,6 +936,12 @@ button {font-family: 'Ramche';}
         50% {transform: rotate(0);}
         60% {transform: rotate(-30deg);}
         100% {transform: rotate(0);}
+      }
+      @keyframes mosterhewb {
+        0% {transform: translateX(0);}
+        50% {transform: translateX(0);}
+        60% {transform: translateX(30%);}
+        100% {transform: translateX(0);}
       }
 
       &.vs {font-size: 50px;}
