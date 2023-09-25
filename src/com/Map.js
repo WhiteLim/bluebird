@@ -51,6 +51,7 @@ export default function Map() {
             <section>
                 <p>황금 골짜기</p>
                 <ul>
+                    <li> <img src="/images/monster/9998.png" alt='' /> <p>골드젤리 (Lv.70)</p> <button onClick={()=>{ battle('m',9998) }}>사냥하기</button></li>
                     <li> <img src="/images/monster/9999.png" alt='' /> <p>골드 드래곤 (Lv.1200)</p> <button >사냥하기</button></li>
                 </ul>
             </section>
