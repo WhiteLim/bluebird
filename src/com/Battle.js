@@ -20,21 +20,26 @@ export default function Battle() {
         },200)
     },[])
     const moster_arr = {
-        "1": [ {id:1,name:"허수아비",lv:1,hp:50,mp:0,att:10,dep:20,speed:0,attA:0,dex:0,gold:10,exp:10} ],
-        "2": [ {id:2,name:"목각인형",lv:5,hp:150,mp:0,att:50,dep:40,speed:10,attA:10,dex:10,gold:20,exp:30} ],
-        "3": [ {id:3,name:"나무병정",lv:10,hp:200,mp:0,att:200,dep:100,speed:50,attA:100,dex:100,gold:30,exp:40} ],
-        "4": [ {id:4,name:"훈련교관",lv:20,hp:700,mp:0,att:1000,dep:500,speed:150,attA:200,dex:200,gold:50,exp:60} ],
-        "5": [ {id:5,name:"칼날의 시험",lv:50,hp:1000,mp:0,att:3000,dep:3000,speed:300,attA:600,dex:600,gold:70,exp:80} ],
-        "6": [ {id:6,name:"온순한 양",lv:5,hp:100,mp:0,att:50,dep:50,speed:5,attA:20,dex:20,gold:30,exp:30} ],
-        "7": [ {id:7,name:"화난 양",lv:10,hp:80,mp:0,att:100,dep:30,speed:25,attA:70,dex:70,gold:40,exp:40} ],
-        "8": [ {id:8,name:"보아뱀",lv:15,hp:200,mp:0,att:150,dep:90,speed:80,attA:100,dex:100,gold:60,exp:60} ],
-        "9": [ {id:9,name:"늑대",lv:20,hp:500,mp:0,att:300,dep:200,speed:150,attA:120,dex:120,gold:80,exp:80} ],
-        "10": [ {id:10,name:"독 나비",lv:25,hp:700,mp:0,att:500,dep:300,speed:400,attA:300,dex:300,gold:100,exp:100} ],
+        "1": [ {id:1,name:"허수아비",lv:1,hp:10,mp:0,att:10,dep:20,speed:0,attA:0,dex:0,gold:10,exp:10} ],
+        "2": [ {id:2,name:"목각인형",lv:5,hp:110,mp:0,att:120,dep:50,speed:10,attA:20,dex:20,gold:20,exp:30} ],
+        "3": [ {id:3,name:"나무병정",lv:10,hp:350,mp:0,att:400,dep:100,speed:10,attA:20,dex:20,gold:30,exp:40} ],
+        "4": [ {id:4,name:"훈련교관",lv:20,hp:600,mp:0,att:800,dep:400,speed:30,attA:50,dex:50,gold:50,exp:60} ],
+        "5": [ {id:5,name:"칼날의 시험",lv:50,hp:1500,mp:0,att:2000,dep:600,speed:50,attA:60,dex:60,gold:100,exp:100} ],
+        "6": [ {id:6,name:"온순한 양",lv:5,hp:40,mp:0,att:10,dep:50,speed:5,attA:10,dex:10,gold:30,exp:30} ],
+        "7": [ {id:7,name:"화난 양",lv:10,hp:150,mp:0,att:300,dep:50,speed:15,attA:30,dex:30,gold:40,exp:40} ],
+        "8": [ {id:8,name:"보아뱀",lv:15,hp:200,mp:0,att:150,dep:90,speed:80,attA:40,dex:40,gold:60,exp:60} ],
+        "9": [ {id:9,name:"늑대",lv:20,hp:500,mp:0,att:300,dep:100,speed:150,attA:50,dex:50,gold:150,exp:150} ],
+        "10": [ {id:10,name:"독 나비",lv:25,hp:700,mp:0,att:500,dep:120,speed:200,attA:50,dex:50,gold:300,exp:300} ],
         "11": [ {id:11,name:"랫맨",lv:20,hp:300,mp:0,att:200,dep:150,speed:40,attA:30,dex:30,gold:150,exp:150} ],
         "12": [ {id:11,name:"전사 랫맨",lv:30,hp:400,mp:0,att:700,dep:150,speed:40,attA:40,dex:40,gold:200,exp:200} ],
         "13": [ {id:13,name:"랫맨의 무언가",lv:35,hp:500,mp:0,att:800,dep:200,speed:40,attA:40,dex:40,gold:500,exp:500} ],
         "14": [ {id:14,name:"동굴 개미",lv:20,hp:150,mp:0,att:200,dep:50,speed:10,attA:40,dex:10,gold:200,exp:200} ],
-        "15": [ {id:15,name:"개미 마법사",lv:30,hp:300,mp:0,att:500,dep:150,speed:20,attA:40,dex:50,gold:250,exp:250} ],
+        "15": [ {id:15,name:"개미 마법사",lv:30,hp:300,mp:0,att:500,dep:150,speed:20,attA:40,dex:50,gold:300,exp:300} ],
+        "16": [ {id:16,name:"아누비스 가드",lv:40,hp:600,mp:0,att:750,dep:400,speed:80,attA:50,dex:60,gold:500,exp:500} ],
+        "17": [ {id:17,name:"아누비스의 그리폰",lv:40,hp:500,mp:0,att:800,dep:200,speed:110,attA:60,dex:60,gold:550,exp:550} ],
+        "18": [ {id:18,name:"파이어 웜",lv:45,hp:900,mp:0,att:950,dep:100,speed:60,attA:30,dex:30,gold:500,exp:500} ],
+        "19": [ {id:19,name:"신전 수호자",lv:50,hp:1200,mp:0,att:1700,dep:300,speed:150,attA:70,dex:70,gold:800,exp:800} ],
+        "20": [ {id:20,name:"봉인된 아누비스",lv:60,hp:2000,mp:0,att:2000,dep:500,speed:200,attA:70,dex:70,gold:1500,exp:1500} ],
         "9998": [ {id:9998,name:"골드젤리",lv:70,hp:5000,mp:0,att:1000,dep:500,speed:30,attA:50,dex:50,gold:1000,exp:5} ]
     }
 

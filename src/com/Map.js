@@ -49,6 +49,16 @@ export default function Map() {
                 </ul>
             </section>
             <section>
+                <p>알수없는 유적</p>
+                <ul>
+                    <li> <img src="/images/monster/16.png" alt='' /> <p>아누비스 가드 (Lv.40)</p> <button>사냥하기</button></li>
+                    <li> <img src="/images/monster/17.png" alt='' /> <p>아누비스의 그리폰 (Lv.40)</p> <button>사냥하기</button></li>
+                    <li> <img src="/images/monster/18.png" alt='' /> <p>파이어 웜 (Lv.45)</p> <button>사냥하기</button></li>
+                    <li> <img src="/images/monster/19.png" alt='' /> <p>신전 수호자 (Lv.50)</p> <button>사냥하기</button></li>
+                    <li> <img src="/images/monster/20.png" alt='' /> <p>봉인된 아누비스 (Lv.60)</p> <button>사냥하기</button></li>
+                </ul>
+            </section>
+            <section>
                 <p>황금 골짜기</p>
                 <ul>
                     <li> <img src="/images/monster/9998.png" alt='' /> <p>골드젤리 (Lv.70)</p> <button onClick={()=>{ battle('m',9998) }}>사냥하기</button></li>
