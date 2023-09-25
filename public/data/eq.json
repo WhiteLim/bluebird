@@ -20,7 +20,10 @@
         {"id":4,"icon":"A_Armour02","name":"철제 갑옷","dep":30,"speed":-20,"gold":10000,"set":"갑옷"}
     ],
     "hand" : [
-        {"id":1,"icon":"glove_4_old","name":"가죽장갑","dep":5,"speed":1,"gold":2000,"set":"장갑"}
+        {"id":1,"icon":"glove_4_old","name":"가죽장갑","dep":5,"speed":1,"gold":2000,"set":"장갑"},
+        {"id":2,"icon":"glove_3_old","name":"방한토시","dep":10,"speed":1,"gold":2500,"set":"장갑"},
+        {"id":3,"icon":"gauntlet_1","name":"기사단 손보호구","dep":20,"speed":10,"gold":7000,"set":"장갑"},
+        {"id":4,"icon":"glove_5","name":"정예 기사단 글러브","dep":40,"speed":20,"gold":20000,"set":"장갑"}
     ],
     "boot" : [
         {"id":1,"icon":"boots_1_brown_old","name":"낡은 가죽 장화","dep":5,"speed":1,"gold":1000,"set":"신발"},
