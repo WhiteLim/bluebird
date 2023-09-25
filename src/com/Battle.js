@@ -33,7 +33,7 @@ export default function Battle() {
         "13": [ {id:13,name:"랫맨의 무언가",lv:35,hp:500,mp:0,att:800,dep:200,speed:40,attA:40,dex:40,gold:500,exp:500} ],
         "14": [ {id:14,name:"동굴 개미",lv:20,hp:150,mp:0,att:200,dep:50,speed:10,attA:40,dex:10,gold:200,exp:200} ],
         "15": [ {id:15,name:"개미 마법사",lv:30,hp:300,mp:0,att:500,dep:150,speed:20,attA:40,dex:50,gold:250,exp:250} ],
-        "9998": [ {id:9998,name:"골드젤리",lv:70,hp:5000,mp:0,att:600,dep:500,speed:30,attA:50,dex:50,gold:1000,exp:50} ]
+        "9998": [ {id:9998,name:"골드젤리",lv:70,hp:5000,mp:0,att:1000,dep:500,speed:30,attA:50,dex:50,gold:1000,exp:5} ]
     }
 
  if(!data || data.length <= 0 || data.length > 1) return <></>;
