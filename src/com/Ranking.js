@@ -23,7 +23,7 @@ export default function Ranking() {
             <ul>
                 <li><p>순위</p><p>아이콘</p><p>닉네임</p><p>Lv</p><p>소속</p></li>
                 {
-                    setUser?.slice(0, 100).map((v,k)=>(
+                    setUser?.slice(0, 100).filter(n=>n.id != 'admin').map((v,k)=>(
                         <li key={k}>
                             <p>{
                             k+1 === 1 ? 

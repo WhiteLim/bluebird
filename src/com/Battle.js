@@ -27,7 +27,12 @@ export default function Battle() {
         "7": [ {id:7,name:"화난 양",lv:10,hp:80,mp:0,att:100,dep:30,speed:25,attA:70,dex:70,gold:40,exp:40} ],
         "8": [ {id:8,name:"보아뱀",lv:15,hp:200,mp:0,att:150,dep:90,speed:80,attA:100,dex:100,gold:60,exp:60} ],
         "9": [ {id:9,name:"늑대",lv:20,hp:500,mp:0,att:300,dep:200,speed:150,attA:120,dex:120,gold:80,exp:80} ],
-        "10": [ {id:10,name:"독 나비",lv:25,hp:700,mp:0,att:500,dep:300,speed:400,attA:300,dex:300,gold:100,exp:100} ]
+        "10": [ {id:10,name:"독 나비",lv:25,hp:700,mp:0,att:500,dep:300,speed:400,attA:300,dex:300,gold:100,exp:100} ],
+        "11": [ {id:11,name:"랫맨",lv:20,hp:300,mp:0,att:200,dep:150,speed:40,attA:30,dex:30,gold:150,exp:150} ],
+        "12": [ {id:11,name:"전사 랫맨",lv:30,hp:400,mp:0,att:700,dep:150,speed:40,attA:40,dex:40,gold:200,exp:200} ],
+        "13": [ {id:13,name:"랫맨의 무언가",lv:35,hp:500,mp:0,att:800,dep:200,speed:40,attA:40,dex:40,gold:500,exp:500} ],
+        "14": [ {id:14,name:"동굴 개미",lv:20,hp:150,mp:0,att:200,dep:50,speed:10,attA:40,dex:10,gold:200,exp:200} ],
+        "15": [ {id:15,name:"개미 마법사",lv:30,hp:300,mp:0,att:500,dep:150,speed:20,attA:40,dex:50,gold:250,exp:250} ]
     }
 
  if(!data || data.length <= 0 || data.length > 1) return <></>;
@@ -88,8 +93,8 @@ export default function Battle() {
                     if( (moster_arr[state.monster][0].hp-damege) <= 0) {
                         tag += `<p>${moster_arr[state.monster][0].name} 사망!</p>`
                         poptag += `<h3>Victory!!</h3>`
-                        getGold = moster_arr[state.monster][0].gold * 2
-                        getexp = moster_arr[state.monster][0].exp * 2
+                        getGold = moster_arr[state.monster][0].gold + preMonster * 2
+                        getexp = moster_arr[state.monster][0].exp + preMonster * 2
                         poptag += `<p> 보상으로 ${getGold}Gold 와 ${getexp}Exp를 얻었다.</p>`
                     } else {
                         tag += `[${moster_arr[state.monster][0].name}의 공격] ${user.nick}에게 ${Aedamege}의 대미지!`
@@ -133,8 +138,8 @@ export default function Battle() {
                         if( (moster_arr[state.monster][0].hp-damege) <= 0) {
                             tag += `<p>${moster_arr[state.monster][0].name} 사망!</p>`
                             poptag += `<h3>Victory!!</h3>`
-                            getGold = moster_arr[state.monster][0].gold * 2
-                            getexp = moster_arr[state.monster][0].exp * 2
+                            getGold = moster_arr[state.monster][0].gold + preMonster * 2
+                            getexp = moster_arr[state.monster][0].exp + preMonster * 2
                             poptag += `<p> 보상으로 ${getGold}Gold 와 ${getexp}Exp를 얻었다.</p>`
                         } else {
                             poptag += `<h3>Draw !! </h3>`
@@ -167,8 +172,8 @@ export default function Battle() {
                             if( (moster_arr[state.monster][0].hp-damege) <= 0) {
                                 tag += `<p>${moster_arr[state.monster][0].name} 사망!</p>`
                                 poptag += `<h3>Victory!!</h3>`
-                                getGold = moster_arr[state.monster][0].gold * 2
-                                getexp = moster_arr[state.monster][0].exp * 2
+                                getGold = moster_arr[state.monster][0].gold + preMonster * 2
+                                getexp = moster_arr[state.monster][0].exp + preMonster * 2
                                 poptag += `<p> 보상으로 ${getGold}Gold 와 ${getexp}Exp를 얻었다.</p>`
                             } else {
                                 poptag += `<h3>Draw !! </h3>`
@@ -211,13 +216,13 @@ export default function Battle() {
                 <figure>
                     <p><img src={`/images/usericon/${data[0].usericon}.png`} alt='' /></p>
                     <figcaption>
-                        <p>{data[0].nick} ( Lv.{data[0].lv} )</p>
-                        <p>HP : { Math.floor(Number(data[0].maxhp) + ( Number(data[0].hea) + ( Number(data[0].hea) * 10.25))) } / MP : { Math.floor(Number(data[0].maxmp) + ( Number(data[0].maind) + ( Number(data[0].maind) * 10.25))) }</p>
+                        <p>{data[0].nick} <br />  ( Lv.{data[0].lv} )</p>
+                        <p>HP : { Math.floor(Number(data[0].maxhp) + ( Number(data[0].hea) + ( Number(data[0].hea) * 10.25))) } <br /> MP : { Math.floor(Number(data[0].maxmp) + ( Number(data[0].maind) + ( Number(data[0].maind) * 10.25))) }</p>
                         <p>
-                            공격력 : { Math.floor( 100 + (Number(data[0].str) + ( Number(data[0].str) * 0.5)) + Number(!data[0].wa?.magic ? 0 : data[0].wa.magic) ) } / 
+                            공격력 : { Math.floor( 100 + (Number(data[0].str) + ( Number(data[0].str) * 0.5)) + Number(!data[0].wa?.magic ? 0 : data[0].wa.magic) ) } <br /> 
                             방어력 : { Math.floor( 50 + (Number(data[0].hea) + ( Number(data[0].hea) * 0.5)) + Number(!data[0].hand?.magic ? 0 : data[0].hand.magic) + Number(!data[0].hat?.magic ? 0 : data[0].hat.magic) + Number(!data[0].arm?.magic ? 0 : data[0].arm.magic) + Number(!data[0].boot?.magic ? 0 : data[0].boot.magic) ) }
                         </p>
-                        <p>회피율 : { Math.floor( 10 + ((Number(data[0].luk) + (Number(data[0].luk)*0.2) ) * 0.2) )} / 명중률 : { Math.floor( 10 + ((Number(data[0].dex) + (Number(data[0].dex)*0.2) ) * 0.2) )}</p>
+                        <p>회피율 : { Math.floor( 10 + ((Number(data[0].luk) + (Number(data[0].luk)*0.2) ) * 0.2) )}  <br />  명중률 : { Math.floor( 10 + ((Number(data[0].dex) + (Number(data[0].dex)*0.2) ) * 0.2) )}</p>
                         <p>공격속도 : {Math.floor( Number(data[0].dex) + Number(!data[0].wa?.speed ? 0 : data[0].wa.speed) + Number(!data[0].hand?.speed ? 0 : data[0].hand.speed) + Number(!data[0].hat?.speed ? 0 : data[0].hat.speed) + Number(!data[0].arm?.speed ? 0 : data[0].arm.speed) + Number(!data[0].boot?.speed ? 0 : data[0].boot.speed) )} </p>
                     </figcaption>
                 </figure>
@@ -227,10 +232,10 @@ export default function Battle() {
                 <figure>
                     <p><img src={`/images/monster/${moster_arr[state.monster][0].id}.png`} alt='' /></p>
                     <figcaption>
-                        <p>{moster_arr[state.monster][0].name} ( Lv.{moster_arr[state.monster][0].lv} )</p>
-                        <p>HP : { moster_arr[state.monster][0].hp } / MP : { moster_arr[state.monster][0].mp }</p>
-                        <p>공격력 : {moster_arr[state.monster][0].att} / 방어력 : {moster_arr[state.monster][0].dep}</p>
-                        <p>회피율 : {moster_arr[state.monster][0].attA} / 명중률 : {moster_arr[state.monster][0].attA}</p>
+                        <p>{moster_arr[state.monster][0].name} <br />  ( Lv.{moster_arr[state.monster][0].lv} )</p>
+                        <p>HP : { moster_arr[state.monster][0].hp } <br />  MP : { moster_arr[state.monster][0].mp }</p>
+                        <p>공격력 : {moster_arr[state.monster][0].att}  <br /> 방어력 : {moster_arr[state.monster][0].dep}</p>
+                        <p>회피율 : {moster_arr[state.monster][0].attA}  <br /> 명중률 : {moster_arr[state.monster][0].attA}</p>
                         <p>공격속도 : {moster_arr[state.monster][0].speed}</p>
                     </figcaption>
                 </figure>

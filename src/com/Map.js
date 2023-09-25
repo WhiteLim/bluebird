@@ -39,6 +39,16 @@ export default function Map() {
                 </ul>
             </section>
             <section>
+                <p>쥐 굴</p>
+                <ul>
+                    <li> <img src="/images/monster/11.png" alt='' /> <p>랫맨 (Lv.20)</p> <button onClick={()=>{ battle('m',11) }}>사냥하기</button></li>
+                    <li> <img src="/images/monster/12.png" alt='' /> <p>전사 랫맨 (Lv.30)</p> <button onClick={()=>{ battle('m',12) }}>사냥하기</button></li>
+                    <li> <img src="/images/monster/13.png" alt='' /> <p>랫맨의 무언가 (Lv.35)</p> <button onClick={()=>{ battle('m',13) }}>사냥하기</button></li>
+                    <li> <img src="/images/monster/14.png" alt='' /> <p>동굴 개미 (Lv.20)</p> <button onClick={()=>{ battle('m',14) }}>사냥하기</button></li>
+                    <li> <img src="/images/monster/15.png" alt='' /> <p>개미 마법사 (Lv.30)</p> <button onClick={()=>{ battle('m',15) }}>사냥하기</button></li>
+                </ul>
+            </section>
+            <section>
                 <p>황금 골짜기</p>
                 <ul>
                     <li> <img src="/images/monster/9999.png" alt='' /> <p>골드 드래곤 (Lv.1200)</p> <button >사냥하기</button></li>
