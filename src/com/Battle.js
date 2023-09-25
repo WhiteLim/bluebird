@@ -1,4 +1,4 @@
-import React, { useContext, useEffect } from 'react'
+import React, { useContext, useEffect, useRef } from 'react'
 import { Link, useLocation } from 'react-router-dom';
 import Header from '../Header';
 import Footer from '../Footer';
@@ -8,6 +8,8 @@ export default function Battle() {
 
     const {state} = useLocation();
     const {data,fetchFn} = useContext(MyContext);
+    const userImages = useRef()
+    const monsterImages = useRef()
     useEffect(()=>{ 
         fetchFn('userdata',state.id);
 
@@ -65,12 +67,15 @@ export default function Battle() {
                 // 유저 선공
                 tag += `<p>${user.nick}의 선제공격!</p>`;
                 tag += `${moster_arr[state.monster][0].name}에게 ${damege}의 대미지!`
-                
+                userImages.current.classList.add('active')
                 if(heab > userattrattb){
+                    
+                    userImages.current.classList.remove('active')
                     // 몬스터 회피
                     tag += `<p> 그러나 ${moster_arr[state.monster][0].name}은(는) 공격을 피했다!!</p>`
                     tag += `<br>`;
                     tag += `[${moster_arr[state.monster][0].name}의 공격] ${user.nick}에게 ${Aedamege}의 대미지!`
+                    monsterImages.current.classList.add('active')
                         if(userattrheab > attb){
                             tag += `<p> 그러나 ${user.nick}은(는) 공격을 피했다!!</p>`
                             tag += `<p> 전투 종료 </p>`
@@ -110,6 +115,7 @@ export default function Battle() {
                         poptag += `<p> 보상으로 ${getGold}Gold 와 ${getexp}Exp를 얻었다.</p>`
                     } else {
                         tag += `[${moster_arr[state.monster][0].name}의 공격] ${user.nick}에게 ${Aedamege}의 대미지!`
+                        monsterImages.current.classList.add('active')
                         if(userattrheab > attb){
                             tag += `<p> 그러나 ${user.nick}은(는) 공격을 피했다!!</p>`
                             poptag += `<h3>Draw !! </h3>`
@@ -133,11 +139,12 @@ export default function Battle() {
             } else {
                 tag += `<p>적의 선제공격!</p>`;
                 tag += `[${moster_arr[state.monster][0].name}의 공격] ${user.nick}에게 ${Aedamege}의 대미지!`
-
+                monsterImages.current.classList.add('active')
                 if(userattrheab > attb){
                     tag += `<p> 그러나 ${user.nick}은(는) 공격을 피했다!!</p>`
                     tag += `<br>`
                     tag += `${moster_arr[state.monster][0].name}에게 ${damege}의 대미지!`
+                    userImages.current.classList.add('active')
                     if(heab > userattrattb){
                         tag += `<p> 그러나 ${moster_arr[state.monster][0].name}은(는) 공격을 피했다!!</p>`
                         poptag += `<h3>Draw !! </h3>`
@@ -170,6 +177,7 @@ export default function Battle() {
                     } else {
                         tag += `<br>`
                         tag += `${moster_arr[state.monster][0].name}에게 ${damege}의 대미지!`
+                        userImages.current.classList.add('active')
                         tag += `<br>`
                         if(heab > userattrattb){
                             tag += `<p> 그러나 ${moster_arr[state.monster][0].name}은(는) 공격을 피했다!!</p>`
@@ -226,7 +234,7 @@ export default function Battle() {
         <main className='mpabattle'>
             <section className='userdata'>
                 <figure>
-                    <p><img src={`/images/usericon/${data[0].usericon}.png`} alt='' /></p>
+                    <p><img src={`/images/usericon/${data[0].usericon}.png`} alt='' ref={userImages} /></p>
                     <figcaption>
                         <p>{data[0].nick} <br />  ( Lv.{data[0].lv} )</p>
                         <p>HP : { Math.floor(Number(data[0].maxhp) + ( Number(data[0].hea) + ( Number(data[0].hea) * 10.25))) } <br /> MP : { Math.floor(Number(data[0].maxmp) + ( Number(data[0].maind) + ( Number(data[0].maind) * 10.25))) }</p>
@@ -242,7 +250,7 @@ export default function Battle() {
             <section className='vs'>vs</section>
             <section className='monsterdata'>
                 <figure>
-                    <p><img src={`/images/monster/${moster_arr[state.monster][0].id}.png`} alt='' /></p>
+                    <p><img src={`/images/monster/${moster_arr[state.monster][0].id}.png`} alt='' ref={monsterImages} /></p>
                     <figcaption>
                         <p>{moster_arr[state.monster][0].name} <br />  ( Lv.{moster_arr[state.monster][0].lv} )</p>
                         <p>HP : { moster_arr[state.monster][0].hp } <br />  MP : { moster_arr[state.monster][0].mp }</p>
