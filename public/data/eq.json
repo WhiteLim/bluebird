@@ -7,6 +7,12 @@
         {"id":5,"icon":"elven_broadsword","name":"투핸드 소드","attr":50,"speed":-20,"gold":15000,"set":"양손검"},
         {"id":6,"icon":"rapier_3","name":"일지매 도","attr":180,"speed":50,"gold":30000,"set":"한손검"},
         {"id":7,"icon":"war_hammer","name":"워 해머","attr":350,"speed":-50,"gold":45000,"set":"양손 둔기"},
+        {"id":8,"icon":"spwpn_singing_sword","name":"금박 투핸드 소드","attr":500,"speed":-20,"gold":150000,"set":"양손 검"},
+        {"id":9,"icon":"spwpn_scythe_of_curses_new","name":"벌초용 낫","attr":400,"speed":10,"gold":200000,"set":"낫"},
+        {"id":80,"icon":"urand_storm_bow","name":"블루버드의 깃털","attr":2500,"speed":300,"gold":1500000,"set":"[EPIC] 신궁"},
+        {"id":81,"icon":"urand_flaming_death_old","name":"블루버드의 칼날","attr":2500,"speed":300,"gold":1500000,"set":"[EPIC] 신검"},
+        {"id":81,"icon":"urand_gyre","name":"블루버드의 발톱","attr":1200,"speed":600,"gold":1500000,"set":"[EPIC] 신검"},
+        {"id":82,"icon":"urand_krishna_new","name":"굽어치는 바람","attr":3500,"speed":500,"gold":2500000,"set":"[EPIC] 신궁"},
         {"id":99,"icon":"fish_01e","name":"참치 참치 냉동참치~","attr":0,"speed":0,"gold":10,"set":"이벤트 아이템"},
         {"id":98,"icon":"I_Bone","name":"개뼈다구","attr":60,"speed":30,"gold":500000,"set":"이벤트 아이템"}
     ],
@@ -15,7 +21,8 @@
         {"id":2,"icon":"C_Elm01","name":"훈련병 모자","dep":10,"speed":0,"gold":2000,"set":"머리방어구"},
         {"id":3,"icon":"C_Elm03","name":"기사단 투구","dep":30,"speed":-5,"gold":15000,"set":"머리방어구"},
         {"id":4,"icon":"helmet_1","name":"철제 투구","dep":20,"speed":0,"gold":15000,"set":"머리방어구"},
-        {"id":5,"icon":"helmet_ego_2","name":"정예 기사단 투구","dep":30,"speed":10,"gold":50000,"set":"머리방어구"}
+        {"id":5,"icon":"helmet_ego_2","name":"정예 기사단 투구","dep":30,"speed":10,"gold":50000,"set":"머리방어구"},
+        {"id":20,"icon":"urand_eternal_torment","name":"사신왕의 왕관","dep":120,"speed":50,"gold":600000,"set":"머리방어구"}
     ],
     "arm" : [
         {"id":1,"icon":2,"name":"누더기 갑옷","dep":5,"speed":0,"gold":1000,"set":"갑옷"},
@@ -23,13 +30,15 @@
         {"id":3,"icon":"A_Armor04","name":"천 갑옷","dep":5,"speed":0,"gold":1500,"set":"갑옷"},
         {"id":4,"icon":"A_Armour02","name":"철제 갑옷","dep":30,"speed":-20,"gold":10000,"set":"갑옷"},
         {"id":5,"icon":"banded_mail_1","name":"링 메일","dep":40,"speed":0,"gold":30000,"set":"갑옷"},
-        {"id":6,"icon":"plate_mail_2","name":"정예 기사단 갑옷","dep":50,"speed":10,"gold":80000,"set":"갑옷"}
+        {"id":6,"icon":"plate_mail_2","name":"정예 기사단 갑옷","dep":50,"speed":10,"gold":80000,"set":"갑옷"},
+        {"id":20,"icon":"shadow_dragon_scale_mail","name":"그림자 드래곤 스캐일 메일","dep":150,"speed":200,"gold":500000,"set":"갑옷"}
     ],
     "hand" : [
         {"id":1,"icon":"glove_4_old","name":"가죽장갑","dep":5,"speed":1,"gold":2000,"set":"장갑"},
         {"id":2,"icon":"glove_3_old","name":"방한토시","dep":10,"speed":1,"gold":2500,"set":"장갑"},
         {"id":3,"icon":"gauntlet_1","name":"기사단 손보호구","dep":20,"speed":10,"gold":7000,"set":"장갑"},
-        {"id":4,"icon":"glove_5","name":"정예 기사단 글러브","dep":40,"speed":20,"gold":20000,"set":"장갑"}
+        {"id":4,"icon":"glove_5","name":"정예 기사단 글러브","dep":40,"speed":20,"gold":20000,"set":"장갑"},
+        {"id":5,"icon":"glove_4_gauntlets","name":"잃어버린 기사의 건틀렛","dep":100,"speed":25,"gold":50000,"set":"장갑"}
     ],
     "boot" : [
         {"id":1,"icon":"boots_1_brown_old","name":"낡은 가죽 장화","dep":5,"speed":1,"gold":1000,"set":"신발"},
@@ -42,6 +51,8 @@
     "sub" : [
         {"id":1,"icon":"pearl_01c","name":"힘의 정기","attr":10,"speed":0,"gold":2000,"set":"보조아이템"},
         {"id":2,"icon":"pearl_01e","name":"속도 정기","speed":10,"gold":5000,"set":"보조아이템"},
-        {"id":3,"icon":"S_Wind06","name":"천사의 날개","speed":600,"gold":1000000,"set":"보조아이템"}
+        {"id":3,"icon":"S_Wind06","name":"천사의 날개","speed":600,"gold":1000000,"set":"보조아이템"},
+        {"id":4,"icon":"misc_horn","name":"전쟁 나팔","attr":15,"dep":15,"speed":15,"gold":20000,"set":"보조아이템"},
+        {"id":5,"icon":"misc_quad","name":"마신의 심장","attr":50,"dep":50,"speed":50,"gold":600000,"set":"보조아이템"}
     ]
 }
