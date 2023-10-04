@@ -14,6 +14,6 @@
 
 현재. 벨라도르 대륙에는 늘 피가 흐르고 있다. 성물 블루버드를 찾을 자는 누구인가.
 
-#Update
-## PWA 적용
-## https://www.notion.so/BlueBird-Development-Note-73f4252eeeea495fae2e6d717c448abd
+# Update
+#### PWA 적용
+#### https://www.notion.so/BlueBird-Development-Note-73f4252eeeea495fae2e6d717c448abd
