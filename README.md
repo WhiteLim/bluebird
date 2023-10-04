@@ -1,70 +1,19 @@
-# Getting Started with Create React App
+# Game Setting
+- React / Express Server / API / Scss
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Game Story
+창세기 0년 - 태초의 신이라 불리는 9명의 신이 등장 하여 세상을 창조하고 인간을 만들고 세상의 이름을 대지의 신의 이름을 빌려 ‘벨라도르 (Vellador)’라고 명하였다.
 
-## Available Scripts
+창세기 500년 - 인간은 8명의신만을 숭배하고 경배하고 찬양 하였다. 이에 인간을 사랑하는 8명의 신이 단 한명도 숭배하지 않았던 어둠의 신(마신) 데모스카를 봉인하고 성물 [ 블루버드 ]를 만들어 영원히 세상 밖으로 못나오게 하였다. 8명의 신에게 감동한 인간들은 신을 위한 제국을 건국하였고, 국호를 신성제국 '크로니우스 (Chronius)' 라 칭하였다.
 
-In the project directory, you can run:
+창세기 1000년 - 신성제국에 존재하던 성물 [ 블루버드 ]가 의문의 사건으로 인해 자취를 감취게 되고 데모스카의 봉인이 약해지게 되자 데모스카는 부활을 꿈꾸며 조금씩 흘러나오는 자신의 힘을 이용해 마물을 창조하여 인간의 영혼을 모으기 시작했다.
 
-### `npm start`
+창세기 1200년 - 마물이 벨라도르 대륙으로 나와 인간을 사냥하기 시작하자 8명의 신(아우레오스, 세레니스, 이리디아, 제피루스, 아스트라이아, 엘리오스, 벨라도르, 에델라인)은 인간에게 권능을 주어 자신의 힘이 깃들게 하여 마물에 대적하기 시작한다.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+창세기 2000년 - 다시 열세로 몰린 데모스카는 인간을 세뇌하여 자신의 추종세력인 환영사제단 (Order of Illusions)을 만들고 이들은 마신을 숭배하는 어둠제국 ‘그림 리퍼블릭 (Grim Republic)’을 창설하여 마신의 부활을 위해 인간을 사냥하기 시작한다.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+현재. 벨라도르 대륙에는 늘 피가 흐르고 있다. 성물 블루버드를 찾을 자는 누구인가.
 
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+#Update
+## PWA 적용
+## https://www.notion.so/BlueBird-Development-Note-73f4252eeeea495fae2e6d717c448abd
