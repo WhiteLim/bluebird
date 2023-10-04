@@ -1,3 +1,6 @@
+# Notice
+#### 개발 임시 중단 [ SQL 연동 후 재개발 예정 ]
+
 # Game Setting
 - React / Express Server / API / Scss
 
